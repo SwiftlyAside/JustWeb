@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz01</title>
+</head>
+<body>
+<h1>Colspan and rowspan</h1>
+<p><b>Cell that spans two columns:</b></p>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="2">Phone</th>
+    </tr>
+    <tr>
+        <td>John Doe</td>
+        <td><span style="color:blue;font-weight: bold">john.doe@example.com</span></td>
+        <td>123-45-678</td>
+        <td>212-00-546</td>
+    </tr>
+</table>
+<p><b>Cell that spans two rows:</b></p>
+<table border="1">
+    <tr>
+        <th>Name:</th>
+        <td>John Doe</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>john.doe<span style="color:red;font-weight: bolder">@</span>example.com</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Phone:</th>
+        <td>123-45-678</td>
+    </tr>
+    <tr>
+        <td>212-00-546</td>
+    </tr>
+</table>
+</body>
+</html>
