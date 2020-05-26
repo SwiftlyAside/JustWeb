@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>lightBox</title>
-    <link href="Ex01.css" rel="stylesheet"/>
+    <link href="CSS/style.css" rel="stylesheet"/>
+    <script src="JS/script.js"></script>
 </head>
-<body>
+<body onload="main()">
 <header>
     <h1>light Box</h1>
-    <img alt="CAR1" class="thumb" src="../../img/car01.png" width="100">
-    <img alt="CAR2" class="thumb" src="../../img/car02.png" width="100">
-    <img alt="CAR3" class="thumb" src="../../img/car03.png" width="100">
+    <img alt="CAR1" class="thumb" id="car1" src="../../img/car01.png" width="100">
+    <img alt="CAR2" class="thumb" id="car2" src="../../img/car02.png" width="100">
+    <img alt="CAR3" class="thumb" id="car3" src="../../img/car03.png" width="100">
 </header>
 <div id="block"></div>
 <div id="lightBox">
@@ -33,9 +34,9 @@
         </tr>
     </table>
     <figure>
-        <img alt="CAR1" src="../../img/car01.png">
-        <img alt="CAR2" src="../../img/car02.png">
-        <img alt="CAR3" src="../../img/car03.png">
+        <img alt="CAR1" id="car1b" src="../../img/car01.png">
+        <img alt="CAR2" id="car2b" src="../../img/car02.png">
+        <img alt="CAR3" id="car3b" src="../../img/car03.png">
     </figure>
     <div class="indicator">
         <button>1</button>

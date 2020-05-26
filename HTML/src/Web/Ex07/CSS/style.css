@@ -11,7 +11,7 @@ h1, p {
     margin: 5px 0;
 }
 
-#lightBox {
+#lightBox.active {
     position: absolute;
     overflow: hidden;
     width: 800px;
@@ -25,6 +25,10 @@ h1, p {
     background: #333;
     z-index: 10;
     display: block;
+}
+
+#lightBox {
+    display: none;
 }
 
 #lightBox h1, #lightBox table {
@@ -55,6 +59,11 @@ figure {
 
 figure img {
     width: 600px;
+    display: none;
+}
+
+figure img.active {
+    display: block;
 }
 
 .indicator {
@@ -90,4 +99,22 @@ figure img {
 
 #lightBox table td {
     border-top: 1px solid #777;
+}
+
+#block {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    opacity: 0.5;
+    z-index: 9;
+    display: none;
+}
+
+#block.active {
+    display: block;
 }
