@@ -35,7 +35,7 @@ function makeGugudan(dan) {
     txt += '<div class="divCell" style="display: table-cell;width: 10%;text-align: center">';
     txt += '<hr style="width: 90%"><h4>' + dan + 'dan</h4><hr style="width: 90%">'
     for (let i = 1; i < 10; i++)
-        txt += dan + 'x' + i + '=' + dan * i + '<br>';
+        txt += `${dan}x${i}=${dan * i}<br>`;
 
     txt += '</div>' // Cell Close
     txt += '</div>' // Row Close
