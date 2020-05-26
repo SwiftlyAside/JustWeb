@@ -9,13 +9,13 @@
 <body onload="main()">
 <header>
     <h1>light Box</h1>
-    <img alt="CAR1" class="thumb" id="car1" src="../../img/car01.png" width="100">
-    <img alt="CAR2" class="thumb" id="car2" src="../../img/car02.png" width="100">
-    <img alt="CAR3" class="thumb" id="car3" src="../../img/car03.png" width="100">
+    <img alt="CAR1" class="thumb" id="1" src="../../img/car01.png" width="100">
+    <img alt="CAR2" class="thumb" id="2" src="../../img/car02.png" width="100">
+    <img alt="CAR3" class="thumb" id="3" src="../../img/car03.png" width="100">
 </header>
 <div id="block"></div>
 <div id="lightBox">
-    <h1>어큐라 NSX GT3</h1>
+    <h1 id="carName">어큐라 NSX GT3</h1>
     <p>
     <table>
         <tr>
@@ -25,18 +25,18 @@
             <th>연비</th>
             <th>출시가</th>
         </tr>
-        <tr>
-            <td>GT3</td>
-            <td>3,501cc</td>
-            <td>정보없음</td>
-            <td>정보없음</td>
-            <td>465,000EUR</td>
+        <tr id="carData">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
     <figure>
-        <img alt="CAR1" id="car1b" src="../../img/car01.png">
-        <img alt="CAR2" id="car2b" src="../../img/car02.png">
-        <img alt="CAR3" id="car3b" src="../../img/car03.png">
+        <img alt="CAR1" src="../../img/car01.png">
+        <img alt="CAR2" src="../../img/car02.png">
+        <img alt="CAR3" src="../../img/car03.png">
     </figure>
     <div class="indicator">
         <button>1</button>
