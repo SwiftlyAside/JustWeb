@@ -26,3 +26,67 @@ h1, p {
     z-index: 10;
     display: block;
 }
+
+#lightBox h1, #lightBox table {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.buttonClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    padding: 10px;
+    font-size: large;
+}
+
+.buttonClose:hover {
+    background-color: #666;
+}
+
+figure {
+    width: 600px;
+    height: 350px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+figure img {
+    width: 600px;
+}
+
+.indicator {
+    text-align: center;
+}
+
+.indicator button {
+    background: #666;
+    color: white;
+    font-size: 12px;
+    border: none;
+    padding: 2px 5px;
+}
+
+.indicator button:hover {
+    background: #933;
+}
+
+.indicator button:focus {
+    background: #f33;
+}
+
+#lightBox table {
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #eee;
+    margin: 0 auto;
+}
+
+#lightBox table td {
+    border-top: 1px solid #777;
+}
