@@ -129,6 +129,10 @@ td.active {
     background-color: #1a94ff;
 }
 
+td:hover {
+    background-color: #5a9999;
+}
+
 td:first-child {
     color: #87e6e6;
 }
