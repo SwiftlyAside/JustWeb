@@ -4,14 +4,14 @@ function setTime() {
     const minutes = currentDate.getMinutes();
     const seconds = currentDate.getSeconds();
     document.getElementById('timeView').innerHTML =
-        `${setNoon(hours)} ${(setHours(hours))}:${setPad(minutes)}:${setPad(seconds)}`;
+        `${setNoon(hours)} ${(convertHour(hours))}:${setPad(minutes)}:${setPad(seconds)}`;
 }
 
 function setNoon(num) {
     return num < 12 ? `오전 ` : `오후 `;
 }
 
-function setHours(hours) {
+function convertHour(hours) {
     return hours % 12 === 0 ? 12 : setPad(hours % 12);
 }
 
@@ -25,8 +25,7 @@ function getYearMonth(currentDate) {
     return `${years}년 ${months}월`;
 }
 
-function setTimeDateView() {
-    let currentDate = new Date();
+function setTimeDateView(currentDate) {
     let days = ['일', '월', '화', '수', '목', '금', '토'];
     const date = currentDate.getDate();
     const day = days[currentDate.getDay()];
@@ -34,16 +33,15 @@ function setTimeDateView() {
         `${getYearMonth(currentDate)} ${date}일 ${day}요일`;
 }
 
-function setCalenderYearMonth() {
-    let currentDate = new Date();
+function setCalenderYearMonth(currentDate) {
     document.getElementById('calendarYearMonth').innerHTML =
         getYearMonth(currentDate);
 }
 
-function setCalendarDate() {
+function setCalendarDate(currentDate) {
     let calendar = document.getElementById('calendarDate');
     calendar.innerHTML = '';
-    calendar.appendChild(createTable());
+    calendar.appendChild(createTable(currentDate));
 }
 
 function getCurrentCalendar(currentDate) {
@@ -53,10 +51,9 @@ function getCurrentCalendar(currentDate) {
     };
 }
 
-function createTable() {
+function createTable(currentDate) {
     let days = ['일', '월', '화', '수', '목', '금', '토'];
     let dayCount = 0;
-    let currentDate = new Date();
     let table = document.createElement('table');
     let {start, last} = getCurrentCalendar(currentDate);
     let tr = document.createElement('tr');
@@ -76,6 +73,8 @@ function createTable() {
     for (let i = 1; i <= last; i++) {
         let td = document.createElement('td');
         td.innerHTML = `${i}`;
+        if (i === currentDate.getDate())
+            td.setAttribute('class', 'active');
         tr.appendChild(td);
         dayCount++;
         if (dayCount % 7 === 0) {
@@ -87,10 +86,18 @@ function createTable() {
     return table;
 }
 
+function getCalYearMon() {
+    let calendarYearMonth = document.getElementById('calendarYearMonth');
+    let yearMonth = calendarYearMonth.innerText.split('년');
+    alert(`${yearMonth[0]} : ${yearMonth[1]}`);
+}
+
 function calendar() {
+    let currentDate = new Date();
     setTime();
-    setTimeDateView();
-    setCalenderYearMonth();
-    setCalendarDate();
+    setTimeDateView(currentDate);
+    setCalenderYearMonth(currentDate);
+    setCalendarDate(currentDate);
     setInterval(setTime, 500);
+    getCalYearMon();
 }
