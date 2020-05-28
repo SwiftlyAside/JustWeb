@@ -5,15 +5,13 @@
   Time: 오전 11:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>JSP Title</title>
 </head>
 <body>
-This is Java Server Page.
-<%
-    System.out.println("THIS IS FOOTBALL!");
-%>
+<h1>This is Java Server Page.</h1>
+<p><img src="yee.jpg" alt="Yee"></p>
 </body>
 </html>
