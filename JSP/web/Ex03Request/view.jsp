@@ -1,5 +1,7 @@
 <%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.Enumeration" %><%--
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: iveci
   Date: 2020-05-28
@@ -15,17 +17,19 @@
 <h1>입력한 정보</h1>
 <hr>
 <%
+    request.setCharacterEncoding("UTF-8");
     Enumeration<String> names = request.getParameterNames();
+    Map<String, String[]> params = request.getParameterMap();
+    Map<String, String> map = new HashMap<>();
+    map.put("name", "이름");
+    map.put("address", "주소");
+    map.put("pet", "동물");
     while (names.hasMoreElements()) {
         String element = names.nextElement();
-        String[] parameterValues = request.getParameterValues(element);
-        out.print(String.format("%s: %s<br>",
-                element.equals("name") ?
-                        "이름" :
-                        element.equals("address") ?
-                                "주소" :
-                                "동물",
-                parameterValues.length == 1 ? parameterValues[0] : Arrays.toString(parameterValues)));
+        if (params.get(element).length == 1)
+            out.print(map.get(element) + ": " + params.get(element)[0] + "<br>");
+        else
+            out.print(map.get(element) + ": " + Arrays.toString(params.get(element)).replace(",", "][") + "<br>");
     }
 %>
 </body>
