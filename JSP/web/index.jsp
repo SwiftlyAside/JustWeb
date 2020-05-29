@@ -2,8 +2,11 @@
 <html>
 <head>
     <title>JSP Title</title>
-</head>
+</head>+
 <body>
-<img src="Quiz/image/header.jpg" alt="Yee">
+<img src="yee.jpg" alt="Yee" width="256" height="30">
+<hr>
+<a href="Ex03Request/form.jsp"><h3>Ex03Request</h3></a>
+<a href="Quiz/home.jsp"><h3>Quiz01</h3></a>
 </body>
 </html>
