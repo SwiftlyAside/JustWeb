@@ -1,0 +1,9 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+<%
+    java.util.Date CURRENT_TIME = new java.util.Date();
+%>
+
+<div style="text-align: center;">
+    헤더에서 날짜를 계산하여 CURRENT_TIME을 전달할 것입니다.
+</div>
+<hr/>
