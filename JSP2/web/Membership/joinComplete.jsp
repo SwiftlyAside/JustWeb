@@ -6,13 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String userName = request.getParameter("userName");
-    String userId = request.getParameter("userId");
-
-    session.setAttribute("userName", userName);
-    session.setAttribute("userId", userId);
-%>
 <html>
 <head>
     <title>회원가입 완료</title>

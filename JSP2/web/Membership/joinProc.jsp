@@ -7,8 +7,11 @@
 
     String forward = "join.jsp";
 
-    if (userPass.contentEquals(userPassOk))
+    if (userPass.contentEquals(userPassOk)) {
+        session.setAttribute("userName", userName);
+        session.setAttribute("userId", userId);
         forward = "joinComplete.jsp";
+    }
 %>
 <jsp:forward page="<%=forward%>">
     <jsp:param name="userName" value="<%=userName%>"/>
