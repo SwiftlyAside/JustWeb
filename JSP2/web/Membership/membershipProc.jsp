@@ -7,10 +7,7 @@
 
     String forward = "membership.jsp";
 
-    if (userPass.contentEquals(userPassOk)) {
-        session.setAttribute("userName", userName);
-        session.setAttribute("userId", userId);
+    if (userPass.contentEquals(userPassOk))
         forward = "joinComplete.jsp";
-    }
 %>
 <jsp:forward page="<%=forward%>"/>
