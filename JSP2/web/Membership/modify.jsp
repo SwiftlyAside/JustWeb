@@ -50,7 +50,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">Copyright @ Here Laboratory. All rights reserved.</td>
+            <td colspan="2">Copyright @ Anomaly Co. All rights reserved.</td>
         </tr>
     </table>
 </form>

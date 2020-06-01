@@ -5,7 +5,7 @@
     String userPass = request.getParameter("userPass");
     String userPassOk = request.getParameter("userPassOk");
 
-    String forward = "join.jsp";
+    String forward = "membership.jsp";
 
     if (userPass.contentEquals(userPassOk)) {
         session.setAttribute("userName", userName);
@@ -13,7 +13,4 @@
         forward = "joinComplete.jsp";
     }
 %>
-<jsp:forward page="<%=forward%>">
-    <jsp:param name="userName" value="<%=userName%>"/>
-    <jsp:param name="userId" value="<%=userId%>"/>
-</jsp:forward>
+<jsp:forward page="<%=forward%>"/>
