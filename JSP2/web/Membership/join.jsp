@@ -11,7 +11,7 @@
     <title>회원가입</title>
 </head>
 <body>
-<form action="joinComplete.jsp" method="get">
+<form action="joinProc.jsp" method="post">
     <table style="width: auto; margin: auto; text-align: right; table-layout: fixed">
         <tr>
             <td colspan="2">
@@ -33,18 +33,18 @@
         </tr>
         <tr>
             <td>패스워드</td>
-            <td><input type="password" name="userPw"></td>
+            <td><input type="password" name="userPass"></td>
         </tr>
         <tr>
             <td>패스워드 확인</td>
-            <td><input type="password" name="userPwOk"></td>
+            <td><input type="password" name="userPassOk"></td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="join" value="회원가입">
+                <input type="submit" value="회원가입">
             </td>
             <td>
-                <button>취소</button>
+                <input type="button" value="취소">
             </td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">Copyright @ Here Laboratory. All rights reserved.</td>
+            <td colspan="2">Copyright @ Anomaly Co. All rights reserved.</td>
         </tr>
     </table>
 </form>
