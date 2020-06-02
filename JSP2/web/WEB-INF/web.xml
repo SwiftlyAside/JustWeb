@@ -13,5 +13,13 @@
             <!--적용할 푸터 정보-->
             <include-coda>/Common/footer.jspf</include-coda>
         </jsp-property-group>
+        <jsp-property-group>
+            <!--적용할 위치-->
+            <url-pattern>/Login/*</url-pattern>
+            <!--적용할 헤더 정보-->
+            <include-prelude>/Common/header.jspf</include-prelude>
+            <!--적용할 푸터 정보-->
+            <include-coda>/Common/footer.jspf</include-coda>
+        </jsp-property-group>
     </jsp-config>
 </web-app>
