@@ -17,14 +17,14 @@
     String[] userPassOk = {"123", "456", "789"};
     String forwardPage = "login.jsp";
 
-
+    request.setAttribute("state", "level");
     if ("read".contentEquals(group)) request.setAttribute("level", 1);
     else if ("readWrite".contentEquals(group)) request.setAttribute("level", 2);
     else if ("admin".contentEquals(group)) request.setAttribute("level", 3);
 
     for (int i = 0; i < userIdOk.length; i++) {
         if (userIdOk[i].contentEquals(userId) && userPassOk[i].contentEquals(userPass)) {
-            forwardPage = "loginOk.jsp";
+            forwardPage = "level.jsp";
             break;
         }
     }

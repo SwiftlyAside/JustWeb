@@ -15,12 +15,10 @@
     <title>권한</title>
 </head>
 <body>
+<jsp:include page="../Common/title_login.jsp">
+    <jsp:param name="state" value="level"/>
+</jsp:include>
 <div>
-    <br>
-    <h1>레벨 <%=level%> 권한</h1>
-</div>
-<div>
-    <hr>
     <h4>
         <%=authority%>
     </h4>
