@@ -4,7 +4,7 @@
     <title>LOGIN</title>
 </head>
 <body>
-<form action="loginProc.jsp" method="post">
+<form action="loginProc.jsp" method="get">
     <table>
         <tr>
             <td>아이디</td>
