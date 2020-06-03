@@ -32,6 +32,9 @@
     String authString = (String) application.getAttribute("authString");
     Beans.User user = (Beans.User) request.getAttribute("user");
 
+    if (user == null) {
+        pageContext.forward("membership.jsp");
+    }
     if (receivedString == null) receivedString = "";
 
     // 다른 인증키 => 회원가입 페이지로 이동
@@ -41,6 +44,7 @@
                 "다음 주소를 클릭하세요.<br><br>" + "http://localhost:8080/jsp4/Membership/membershipProc.jsp?auth=" + authString);
         application.setAttribute("authString", authString);
     } else if (authString.contentEquals(receivedString)) { // 인증키 일치
+        request.removeAttribute("user");
         application.removeAttribute("authString");
         pageContext.forward("membershipOk.jsp");
     }

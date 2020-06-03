@@ -22,18 +22,22 @@
         margin: auto;
     }
 
-    input[type=text], input[type=password] {
+    input[type=text], input[type=password], input[type=email] {
         padding: 5px;
         margin: 3px 0;
         border: 1px solid #2866DC;
-        border-radius: 2px;
+        border-radius: 4px;
         font-size: 20px;
         color: #0f1940;
 
     }
 
+    input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+        border: 1px solid #A4BFF1;
+    }
+
     td {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bolder;
         text-align: center;
     }
