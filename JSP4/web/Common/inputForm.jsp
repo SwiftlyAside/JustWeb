@@ -35,7 +35,6 @@
                 <td>이메일 주소</td>
                 <td>
                     <input type="text" name="userEmail">
-                    <input type="submit" value="인증번호 전송">
                 </td>
             </tr>
             <tr>
