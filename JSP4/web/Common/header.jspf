@@ -17,6 +17,11 @@
         margin: auto;
     }
 
+    .innerDiv {
+        width: 300px;
+        text-align: left;
+    }
+
     table {
         table-layout: fixed;
         width: 100%;
@@ -27,7 +32,7 @@
         width: 300px;
         padding: 5px;
         margin: 3px 0;
-        border: 2px solid #7ED8AD;
+        border: 2px solid #A2E3C4;
         border-radius: 4px;
         font-size: 20px;
         color: #365C4A;
@@ -37,7 +42,7 @@
 
     input::placeholder {
         font-size: 16px;
-        color: #7ED8AD;
+        color: #A2E3C4;
     }
 
     input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
