@@ -32,8 +32,8 @@
     String authString = (String) application.getAttribute("authString");
     Beans.User user = (Beans.User) request.getAttribute("user");
 
-    // 다른 인증키 => 회원가입 페이지로 이동
-    if (user == null) {
+
+    if (user == null) { // 유저정보 없음 => 회원가입 페이지로 이동
         pageContext.forward("membership.jsp");
     }
     if (receivedString == null) receivedString = "";
@@ -45,7 +45,8 @@
                         "&userId=" + user.getUserId() + "&userName=" + user.getUserName());
         application.setAttribute("authString", authString);
     } else if (authString.contentEquals(receivedString)) { // 인증키 일치
-        session.setAttribute("userName",user.getUserName());
+        session.setAttribute("userId", user.getUserId());
+        session.setAttribute("userName", user.getUserName());
         request.removeAttribute("user");
         application.removeAttribute("authString");
         pageContext.forward("membershipOk.jsp");

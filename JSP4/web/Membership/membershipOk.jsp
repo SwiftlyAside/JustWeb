@@ -2,7 +2,7 @@
 <%
 
     String userName = (String) session.getAttribute("userName");
-    String userId = request.getParameter("userId");
+    String userId = (String) session.getAttribute("userId");
 %>
 <html>
 <head>
