@@ -8,7 +8,7 @@
   <hr>
   <h2>링크들</h2>
   <ul>
-    <li>아직 없다.</li>
+    <li><a href="Membership/membership.jsp">회원 가입</a></li>
   </ul>
   </body>
 </html>

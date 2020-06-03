@@ -16,36 +16,35 @@
         <input type="hidden" name="state" value="<%=state%>">
         <table>
             <tr>
-                <td>이름</td>
-                <td><input type="text" name="userName" value="<%=userName%>"></td>
+                <td>아이디</td>
             </tr>
             <tr>
-                <td>아이디</td>
                 <td><input type="text" name="userId" value="<%=userId%>" <%=readonly%>></td>
             </tr>
             <tr>
-                <td>패스워드</td>
+                <td>비밀번호</td>
+            </tr>
+            <tr>
                 <td><input type="password" name="userPass"></td>
             </tr>
             <tr>
-                <td>패스워드 확인</td>
-                <td><input type="password" name="userPassOk"></td>
+                <td><input type="password" name="userPassOk" placeholder="비밀번호 재확인"><br></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="userName" value="<%=userName%>"></td>
             </tr>
             <tr>
                 <td>이메일 주소</td>
-                <td>
-                    <input type="text" name="userEmail">
-                </td>
             </tr>
             <tr>
-                <td>인증번호</td>
-                <td><input type="text" name="userEmailOk"></td>
+                <td><input type="text" name="userEmail"></td>
             </tr>
             <tr>
                 <td>
                     <input type="submit" value="<%=buttonName%>">
-                </td>
-                <td>
                     <input type="button" value="취소">
                 </td>
             </tr>
