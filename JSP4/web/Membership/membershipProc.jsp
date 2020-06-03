@@ -1,13 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="user" class="Beans.User" scope="session"/>
+<jsp:setProperty name="user" property="*"/>
 <%
-    String userName = request.getParameter("userName");
-    String userId = request.getParameter("userId");
-    String userPass = request.getParameter("userPass");
-    String userPassOk = request.getParameter("userPassOk");
-
-    String forward = "membership.jsp";
-
-    if (userPass.contentEquals(userPassOk))
-        forward = "membershipOk.jsp";
+    String forwardPage = user.getUserPass().contentEquals(user.getUserPassOk()) ?
+            "membershipCheckAuth.jsp" : "membership.jsp";
+    request.setAttribute("user", user);
 %>
-<jsp:forward page="<%=forward%>"/>
+<jsp:forward page="<%=forwardPage%>"/>
