@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
-    String userName = request.getParameter("userName");
+
+    String userName = (String) session.getAttribute("userName");
     String userId = request.getParameter("userId");
 %>
 <html>
@@ -14,7 +15,7 @@
     </h1>
     <hr>
 </div>
-<h2>아이디 <%=userId%>로<br>회원가입이 완료되었습니다.</h2>
+<h2><%=userName%>님, 가입을 환영합니다.<br>아이디 <%=userId%>로<br>회원가입이 완료되었습니다.</h2>
 <div>
     <form action="membership.jsp" method="post">
         <input type="hidden" name="state" value="modify">

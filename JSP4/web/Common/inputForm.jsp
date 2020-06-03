@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     String error = request.getParameter("error");
     String state = request.getParameter("state");
@@ -37,21 +37,26 @@
         readonly = "readonly";
     }
 %>
+<script src="membership.js"></script>
 <div>
     <form action="membershipProc.jsp" method="post">
         <input type="hidden" name="state" value="<%=state%>">
         <table>
             <tr>
-                <td>아이디</td>
+                <td>
+                    <div style="width: 300px; text-align: left">
+                        <label for="userId">아이디</label>
+                        <input type="text" id="userId" name="userId" value="<%=userId%>" <%=readonly%>>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td><input type="text" name="userId" value="<%=userId%>" <%=readonly%>></td>
-            </tr>
-            <tr>
-                <td>비밀번호</td>
-            </tr>
-            <tr>
-                <td><input type="password" name="userPass"></td>
+                <td>
+                    <div style="width: 300px; text-align: left">
+                        <label for="userPass">비밀번호</label>
+                        <input type="password" id="userPass" name="userPass">
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td><input type="password" name="userPassOk" placeholder="비밀번호 재확인"></td>

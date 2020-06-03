@@ -3,10 +3,12 @@
     String state = request.getParameter("state");
     String userName = request.getParameter("userName");
     String userId = request.getParameter("userId");
+    String userEmail = request.getParameter("userEmail");
 
     if (state == null) state = "membership";
     if (userName == null) userName = "";
     if (userId == null) userId = "";
+    if (userEmail == null) userEmail = "";
 %>
 <html>
 <head>
@@ -21,6 +23,7 @@
     <jsp:param name="state" value="<%=state%>"/>
     <jsp:param name="userName" value="<%=userName%>"/>
     <jsp:param name="userId" value="<%=userId%>"/>
+    <jsp:param name="userEmail" value="<%=userEmail%>"/>
 </jsp:include>
 </body>
 </html>
