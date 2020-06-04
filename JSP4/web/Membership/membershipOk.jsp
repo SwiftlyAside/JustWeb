@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
 
-    String userName = (String) session.getAttribute("userName");
-    String userId = (String) session.getAttribute("userId");
+    String userName = (String) application.getAttribute("userName");
+    String userId = (String) application.getAttribute("userId");
 %>
 <html>
 <head>

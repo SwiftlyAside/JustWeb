@@ -1,3 +1,4 @@
+<%@ page import="java.util.Objects" %>
 <%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <jsp:useBean id="mail" class="com.jin.mail.JinsMail"/>
@@ -32,20 +33,16 @@
     String authString = (String) application.getAttribute("authString");
     Beans.User user = (Beans.User) request.getAttribute("user");
 
-
-    if (user == null) { // 유저정보 없음 => 회원가입 페이지로 이동
-        pageContext.forward("membership.jsp");
-    }
     if (receivedString == null) receivedString = "";
-
     if (authString == null) { // 인증키가 생성되지 않음 => 메일을 전송하지 않음
+        if (!Objects.equals(receivedString, "")) pageContext.forward("membership.jsp");
         authString = generateAuthString();
         mail.SendMail("ANOMALY", "deusta12@gmail.com", user.getUserEmail(), "인증 이메일",
-                "다음 주소를 클릭하세요.<br><br>" + "http://localhost:8080/jsp4/Membership/membershipProc.jsp?auth=" + authString);
+                "다음 주소를 클릭하세요.<br><br>" + "http://localhost:8080/jsp4/Membership/membershipCheckAuth.jsp?auth=" + authString);
+        application.setAttribute("userId", user.getUserId());
+        application.setAttribute("userName", user.getUserName());
         application.setAttribute("authString", authString);
     } else if (authString.contentEquals(receivedString)) { // 인증키 일치
-        session.setAttribute("userId", user.getUserId());
-        session.setAttribute("userName", user.getUserName());
         request.removeAttribute("user");
         application.removeAttribute("authString");
         pageContext.forward("membershipOk.jsp");
