@@ -41,8 +41,7 @@
     if (authString == null) { // 인증키가 생성되지 않음 => 메일을 전송하지 않음
         authString = generateAuthString();
         mail.SendMail("ANOMALY", "deusta12@gmail.com", user.getUserEmail(), "인증 이메일",
-                "다음 주소를 클릭하세요.<br><br>" + "http://localhost:8080/jsp4/Membership/membershipProc.jsp?auth=" + authString +
-                        "&userId=" + user.getUserId() + "&userName=" + user.getUserName());
+                "다음 주소를 클릭하세요.<br><br>" + "http://localhost:8080/jsp4/Membership/membershipProc.jsp?auth=" + authString);
         application.setAttribute("authString", authString);
     } else if (authString.contentEquals(receivedString)) { // 인증키 일치
         session.setAttribute("userId", user.getUserId());
