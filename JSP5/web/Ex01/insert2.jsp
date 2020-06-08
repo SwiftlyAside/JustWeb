@@ -25,7 +25,7 @@
         Connection connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
         out.print(dbUser + " 계정으로 접속.<br><br>");
 
-        String sql = "insert into CUSTOMERS VALUES(?,?,?,?,?,?,?);";
+        String sql = "insert into CUSTOMERS(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, 10);
         statement.setString(2, "test2");

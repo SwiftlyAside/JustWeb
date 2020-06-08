@@ -21,8 +21,8 @@
     String dbUser = "c##swiftly";
     String dbPass = "iehfur9274";
 
-    String sql = "insert into CUSTOMERS(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) " +
-            "VALUES(autoInc.nextval, 'CustomerName 3', 'ContactName 3', 'Address 3', 'City 3', 'PostalCode 3', 'Country 3');";
+    String sql = "insert into CUSTOMERS(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES(autoInc.nextval, 'CustomerName 3', 'ContactName 3', 'Address 3', 'City 3', 'PostalCode 3', 'Country 3')";
+
 
 
     try {
