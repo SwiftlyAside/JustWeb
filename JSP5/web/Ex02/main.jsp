@@ -11,6 +11,6 @@
 <body>
 <jsp:include page="viewer.jsp"/>
 <hr>
-<jsp:include page="viewProcAlt.jsp"/>
+<jsp:include page="viewProc.jsp"/>
 </body>
 </html>
