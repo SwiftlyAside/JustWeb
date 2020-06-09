@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jinsMail">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/jinsMail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/mail.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../lib/jinsMail.jar!/" />
+    </SOURCES>
+  </library>
+</component>

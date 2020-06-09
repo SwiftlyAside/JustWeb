@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JSP2:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/JSP2_war</output-path>
+    <root id="archive" name="JSP2_war.war">
+      <element id="artifact" artifact-name="JSP2:war exploded" />
+    </root>
+  </artifact>
+</component>

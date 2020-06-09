@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HTML/HTML.iml" filepath="$PROJECT_DIR$/HTML/HTML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP1/JSP1.iml" filepath="$PROJECT_DIR$/JSP1/JSP1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP2/JSP2.iml" filepath="$PROJECT_DIR$/JSP2/JSP2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP3/JSP3.iml" filepath="$PROJECT_DIR$/JSP3/JSP3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP4/JSP4.iml" filepath="$PROJECT_DIR$/JSP4/JSP4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP5/JSP5.iml" filepath="$PROJECT_DIR$/JSP5/JSP5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JustWeb.iml" filepath="$PROJECT_DIR$/JustWeb.iml" />
+    </modules>
+  </component>
+</project>
