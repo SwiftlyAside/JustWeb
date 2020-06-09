@@ -95,12 +95,12 @@ public class FileReader {
             String[] strings = s.split("\t");
             Products product = new Products();
 
-            product.setProductId(Integer.valueOf(strings[0]));
+            product.setProductId(Integer.parseInt(strings[0]));
             product.setProductName(strings[1]);
-            product.setSupplierId(Integer.valueOf(strings[2]));
-            product.setCategoryId(Integer.valueOf(strings[3]));
+            product.setSupplierId(Integer.parseInt(strings[2]));
+            product.setCategoryId(Integer.parseInt(strings[3]));
             product.setUnit(strings[4]);
-            product.setPrice(Double.valueOf(strings[5]));
+            product.setPrice(Double.parseDouble(strings[5]));
 
             productsList.add(product);
         }
@@ -114,7 +114,7 @@ public class FileReader {
             String[] strings = s.split("\t");
             Employees employee = new Employees();
 
-            employee.setEmployeeId(Integer.valueOf(strings[0]));
+            employee.setEmployeeId(Integer.parseInt(strings[0]));
             employee.setLastName(strings[1]);
             employee.setFirstName(strings[2]);
             employee.setBirthDate(strings[3]);
@@ -132,7 +132,7 @@ public class FileReader {
             String[] strings = s.split("\t");
             Shippers shipper = new Shippers();
 
-            shipper.setShipperId(Integer.valueOf(strings[0]));
+            shipper.setShipperId(Integer.parseInt(strings[0]));
             shipper.setShipperName(strings[1]);
             shipper.setPhone(strings[2]);
 
@@ -147,11 +147,11 @@ public class FileReader {
             String[] strings = s.split("\t");
             Orders order = new Orders();
 
-            order.setOrderId(Integer.valueOf(strings[0]));
-            order.setCustomerId(Integer.valueOf(strings[1]));
-            order.setEmployeeId(Integer.valueOf(strings[2]));
+            order.setOrderId(Integer.parseInt(strings[0]));
+            order.setCustomerId(Integer.parseInt(strings[1]));
+            order.setEmployeeId(Integer.parseInt(strings[2]));
             order.setOrderDate(strings[3]);
-            order.setShipperId(Integer.valueOf(strings[4]));
+            order.setShipperId(Integer.parseInt(strings[4]));
 
             ordersList.add(order);
         }
