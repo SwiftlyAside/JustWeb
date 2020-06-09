@@ -19,6 +19,7 @@
 <body>
 <jsp:include page="viewer.jsp"/>
 <hr>
-<jsp:include page="<%=forwardPage%>"/>
+<%--<jsp:include page="<%=forwardPage%>"/>--%>
+<jsp:include page="viewProcAlt.jsp"/>
 </body>
 </html>
