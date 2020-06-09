@@ -157,4 +157,20 @@ public class FileReader {
         }
         return ordersList;
     }
+
+    public List<OrderDetails> getOrderDetailsList(List<String> list) {
+        List<OrderDetails> orderDetailsList = new ArrayList<>();
+        for (String s : list) {
+            String[] strings = s.split("\t");
+            OrderDetails orderDetail = new OrderDetails();
+
+            orderDetail.setOrderDetailId(Integer.parseInt(strings[0]));
+            orderDetail.setOrderId(Integer.parseInt(strings[1]));
+            orderDetail.setProductId(Integer.parseInt(strings[2]));
+            orderDetail.setQuantity(Integer.parseInt(strings[3].substring(0, strings[3].length() - 1)));
+
+            orderDetailsList.add(orderDetail);
+        }
+        return orderDetailsList;
+    }
 }

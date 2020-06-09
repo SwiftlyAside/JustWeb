@@ -1,5 +1,7 @@
 package Bean;
 
+import java.sql.Date;
+
 public class Orders {
 
     private Integer orderId;
