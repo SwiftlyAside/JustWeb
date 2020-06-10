@@ -28,6 +28,11 @@
           <option name="CONTEXT_PATH" value="/jsp5" />
         </settings>
       </artifact>
+      <artifact name="JSP6:war">
+        <settings>
+          <option name="CONTEXT_PATH" value="/jsp6" />
+        </settings>
+      </artifact>
     </deployment>
     <server-settings>
       <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_35_JustWeb_5" />
@@ -93,6 +98,7 @@
         <artifact name="JSP3:war" />
         <artifact name="JSP4:war" />
         <artifact name="JSP5:war" />
+        <artifact name="JSP6:war" />
       </option>
     </method>
   </configuration>

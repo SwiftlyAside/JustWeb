@@ -1,15 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String email = request.getParameter("email");
-    String readonly = "readonly";
     String authString = (String) session.getAttribute("authString");
-    if (email == null || "".contentEquals(email)) {
-        email = "";
-        readonly = "";
-    }
-
-    if (authString != null)
-        System.out.println("Auth String: " + authString);
 %>
 <div style="display: flex; justify-content: center">
     <form id="memberForm" action="<%=request.getContextPath()%>/index.jsp" method="post">
@@ -38,7 +30,7 @@
             <tr>
                 <td align='right' height=40>E-Mail</td>
                 <td>
-                    <input type=email name='email' placeholder='E-Mail 입력' value="<%=email%>" <%=readonly%>/>
+                    <input type=email name='email' value="<%=email%>" readonly/>
                 </td>
                 <td align='right'>인증번호</td>
                 <td>
