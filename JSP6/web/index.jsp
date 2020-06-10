@@ -2,10 +2,11 @@
 <%@ include file="/common/header.jspf" %>
 <%
     String form = request.getParameter("form");
+    String id = request.getParameter("id");
     if (form == null || "home".contentEquals(form)) form = "form/home.jsp";
-    else if ("login".contentEquals(form)) form = "form/loginForm.jsp";
-    else if ("auth".contentEquals(form)) form = "form/authForm.jsp";
-    else if ("board".contentEquals(form)) form = "form/boardForm.jsp";
+    else form = "form/" + form + "Form.jsp";
+
+    if (id != null) session.setAttribute("id", id);
 %>
 <html>
 <link rel="stylesheet" href="globalStyle.css">
