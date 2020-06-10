@@ -11,33 +11,50 @@ function checkLogin() {
 }
 
 function checkEmail() {
+    const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     let email = document.getElementById('email');
     if (isEmpty(email.value)) alert('이메일을 입력하세요.');
-    else if (!isEmail(email.value)) alert('이메일 형식이 올바르지 않습니다.');
+    else if (!regExp.test(email.value)) alert('이메일 형식이 올바르지 않습니다.');
     else document.getElementById('authForm').submit();
 }
 
-function isEmail(asValue) {
-    const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    return regExp.test(asValue); // 형식에 맞는 경우 true 리턴
+function checkMember(authString) {
+    let ids = ['memberId', 'memberPw', 'memberPwOk', 'authNum'];
+    for (const i in ids)
+        if (!checkField(ids[i])) return;
+    if (!checkPassword(ids[1], ids[2])) return;
+    if (checkAuth(ids[3], authString))
+        document.getElementById('memberForm').submit();
 }
 
-function checkMember(authString) {
-    let id = document.getElementById('memberId');
-    let pw = document.getElementById('memberPw');
-    let pwOk = document.getElementById('memberPwOk');
-    let authNum = document.getElementById('authNum');
-    let auth = authString.toString();
-    let errorLog = document.getElementById('errorLog');
+function checkField(textField) {
+    let id = document.getElementById(textField);
+    if (isEmpty(id.value)) {
+        alert('필수 항목이 비어있습니다.');
+        id.focus();
+        return false;
+    }
+    return true;
+}
 
-    if (isEmpty(id.value)) errorLog.innerText = '아이디를 입력하세요.';
-    else if (isEmpty(pw.value) || isEmpty(pwOk.value)) errorLog.innerText = '비밀번호를 입력하세요.';
-    else if (isEmpty(authNum.value)) errorLog.innerText = '인증번호를 입력하세요.';
-    else if (pw.value !== pwOk.value) {
-        errorLog.innerText = '비밀번호가 일치하지 않습니다.';
+function checkPassword(password, passwordOk) {
+    let pw = document.getElementById(password);
+    let pwOk = document.getElementById(passwordOk);
+    if (pw.value !== pwOk.value) {
+        alert('비밀번호가 일치하지 않습니다.');
+        pw.value = '';
+        pwOk.value = '';
         pw.focus();
-    } else if (authNum.value !== auth) {
-        errorLog.innerText = '인증번호가 일치하지 않습니다.';
-        authNum.focus();
-    } else document.getElementById('memberForm').submit();
+        return false;
+    } else return true;
+}
+
+function checkAuth(authNum, authString) {
+    let auth = document.getElementById('authNum');
+    let authTarget = authString.toString();
+    if (auth.value !== authTarget) {
+        alert('인증번호가 일치하지 않습니다.');
+        auth.focus();
+        return false;
+    } else return true;
 }

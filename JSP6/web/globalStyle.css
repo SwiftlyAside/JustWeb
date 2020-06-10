@@ -23,3 +23,56 @@ a:active {
     color: #ff00cc;
     text-decoration: underline;
 }
+
+input[type=button] {
+    padding: 5px;
+    margin: 3px 0;
+    border: 1px solid #848484;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=button]:hover {
+    border: 1px solid #050505;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    padding: 5px;
+    margin: 3px 0;
+    border: 1px solid #848484;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #050505;
+    transition: 0.5s;
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border: 1px solid #454545;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #050505;
+    -webkit-box-shadow: 0 0 0 1000px #888 inset;
+}
+
+td {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #050505;
+    text-align: center;
+}
