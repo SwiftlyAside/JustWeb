@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
 <div style="display: flex; justify-content: center">
-    <form action="index.jsp" method="post">
-        <input type="hidden" name="form" value="member">
+    <form action="<%=request.getContextPath()%>/membership/authProc.jsp" method="post">
         <table>
             <tr>
                 <td>

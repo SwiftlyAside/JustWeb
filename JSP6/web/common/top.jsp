@@ -5,10 +5,10 @@
     </tr>
     <tr style="text-align: right">
         <td style="width: 600px"></td>
-        <td><a href="index.jsp?form=home">홈</a></td>
-        <td><a href="index.jsp?form=login">로그인</a></td>
-        <td><a href="index.jsp?form=auth">회원가입</a></td>
-        <td><a href="index.jsp?form=board">게시판</a></td>
+        <td><a href="<%=request.getContextPath()%>/index.jsp?form=home">홈</a></td>
+        <td><a href="<%=request.getContextPath()%>/index.jsp?form=login">로그인</a></td>
+        <td><a href="<%=request.getContextPath()%>/index.jsp?form=auth">회원가입</a></td>
+        <td><a href="<%=request.getContextPath()%>/index.jsp?form=board">게시판</a></td>
     </tr>
     <tr>
         <td style="text-align: center" colspan=5>

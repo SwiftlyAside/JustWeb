@@ -8,7 +8,7 @@
     }
 %>
 <div style="display: flex; justify-content: center">
-    <form>
+    <form action="<%=request.getContextPath()%>/index.jsp">
         <table>
             <tr>
                 <td align='right' height=40>아이디</td>

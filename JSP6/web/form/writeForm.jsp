@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div style="text-align: center;">
-    <form>
+    <form action="${pageContext.request.contextPath}/index.jsp" method="post">
         <input type="hidden" name="form" value="board">
         <table style="width: 650px; ">
             <tr>
