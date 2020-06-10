@@ -1,0 +1,25 @@
+a {
+    transition: 0.3s;
+}
+
+a:link {
+    color: black;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #cc3300;
+    font-weight: bold;
+}
+
+a:active {
+    color: #ff00cc;
+    text-decoration: underline;
+}
