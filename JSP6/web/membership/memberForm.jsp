@@ -2,18 +2,22 @@
 <%
     String email = request.getParameter("email");
     String readonly = "readonly";
+    String authString = (String) session.getAttribute("authString");
     if (email == null || "".contentEquals(email)) {
         email = "";
         readonly = "";
     }
+
+    if (authString != null)
+        System.out.println("Auth String: " + authString);
 %>
 <div style="display: flex; justify-content: center">
-    <form action="<%=request.getContextPath()%>/index.jsp">
+    <form id="memberForm" action="<%=request.getContextPath()%>/index.jsp" method="post">
         <table>
             <tr>
                 <td align='right' height=40>아이디</td>
                 <td>
-                    <input type=text name='id' placeholder='id 입력'/>
+                    <input type=text id="memberId" name='id' placeholder='id 입력'/>
                 </td>
                 <td align='right' width=120>성 별</td>
                 <td>
@@ -24,11 +28,11 @@
             <tr>
                 <td align='right' height=40>패스워드</td>
                 <td>
-                    <input type=text name='pw' placeholder='pw 입력'/>
+                    <input type=text id="memberPw" name='pw' placeholder='pw 입력'/>
                 </td>
                 <td align='right'>패스워드 확인</td>
                 <td>
-                    <input type=text name='pw' placeholder='pw 입력'/>
+                    <input type=text id="memberPwOk" name='pwOk' placeholder='pw 입력'/>
                 </td>
             </tr>
             <tr>
@@ -38,12 +42,12 @@
                 </td>
                 <td align='right'>인증번호</td>
                 <td>
-                    <input type=text name='authNum' placeholder='인증번호 입력'/>
+                    <input type=text id="authNum" name='authNum' placeholder='인증번호 입력'/>
                 </td>
             </tr>
             <tr>
                 <td align='center' height=40 colspan=4>
-                    <input type=submit value='로그인' style="width: 120px; "/>
+                    <input type=button onclick="checkMember(<%=authString%>)" value='로그인' style="width: 120px; "/>
                     <input type=reset value='취소' style="width: 120px; "/>
                 </td>
             </tr>

@@ -19,7 +19,7 @@
     String authString = generateAuthString();
     mail.SendMail("ANOMALY", "deusta12@gmail.com", email, "인증 이메일",
             "인증번호입니다.<br><br>" + authString);
-    application.setAttribute("authString", authString);
+    session.setAttribute("authString", authString);
 %>
 <jsp:forward page="/index.jsp">
     <jsp:param name="form" value="member"/>

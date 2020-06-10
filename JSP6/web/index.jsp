@@ -12,7 +12,7 @@
     if (id != null) session.setAttribute("id", id);
 %>
 <html>
-<script src="globalScript.js"></script>
+<script src="${pageContext.request.contextPath}/globalScript.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/globalStyle.css">
 <body>
 <div style="display: flex; justify-content: center">
