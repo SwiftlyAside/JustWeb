@@ -28,17 +28,16 @@ function checkMember(authString) {
     let pwOk = document.getElementById('memberPwOk');
     let authNum = document.getElementById('authNum');
     let auth = authString.toString();
+    let errorLog = document.getElementById('errorLog');
 
-    if (isEmpty(id.value)) alert('아이디를 입력하세요.');
-    else if (isEmpty(pw.value) || isEmpty(pwOk.value)) alert('비밀번호를 입력하세요.');
-    else if (isEmpty(authNum.value)) alert('인증번호를 입력하세요.');
+    if (isEmpty(id.value)) errorLog.innerText = '아이디를 입력하세요.';
+    else if (isEmpty(pw.value) || isEmpty(pwOk.value)) errorLog.innerText = '비밀번호를 입력하세요.';
+    else if (isEmpty(authNum.value)) errorLog.innerText = '인증번호를 입력하세요.';
     else if (pw.value !== pwOk.value) {
-        alert('비밀번호가 일치하지 않습니다.');
+        errorLog.innerText = '비밀번호가 일치하지 않습니다.';
         pw.focus();
-    }
-    else if (authNum.value !== auth) {
-        alert('인증번호가 일치하지 않습니다.');
+    } else if (authNum.value !== auth) {
+        errorLog.innerText = '인증번호가 일치하지 않습니다.';
         authNum.focus();
-    }
-    else document.getElementById('memberForm').submit();
+    } else document.getElementById('memberForm').submit();
 }

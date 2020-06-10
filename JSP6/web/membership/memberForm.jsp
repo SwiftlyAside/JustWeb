@@ -20,11 +20,11 @@
             <tr>
                 <td align='right' height=40>패스워드</td>
                 <td>
-                    <input type=text id="memberPw" name='pw' placeholder='pw 입력'/>
+                    <input type=password id="memberPw" name='pw' placeholder='pw 입력'/>
                 </td>
                 <td align='right'>패스워드 확인</td>
                 <td>
-                    <input type=text id="memberPwOk" name='pwOk' placeholder='pw 입력'/>
+                    <input type=password id="memberPwOk" name='pwOk' placeholder='pw 입력'/>
                 </td>
             </tr>
             <tr>
@@ -45,4 +45,6 @@
             </tr>
         </table>
     </form>
+
 </div>
+<h2 id="errorLog" style="text-align: center"></h2>
