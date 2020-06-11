@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<script src="${pageContext.request.contextPath}/js/authForm.js"></script>
 <div style="display: flex; justify-content: center">
     <form id="authForm" action="<%=request.getContextPath()%>/membership/authProc.jsp" method="post">
         <table>

@@ -18,7 +18,7 @@
 %>
 <html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
-<script src="${pageContext.request.contextPath}/globalScript.js"></script>
+<script src="${pageContext.request.contextPath}/js/globalScript.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/globalStyle.css?v=<%=fmt.format(time)%>">
 <body>

@@ -1,73 +1,80 @@
 * {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 a:link {
-    color: black;
-    font-family: sans-serif;
-    text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 a:visited {
-    color: black;
-    font-family: sans-serif;
-    text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #cc3300;
-    font-weight: bold;
+  color: #c30;
+  font-weight: bold;
 }
 
 a:active {
-    color: #ff00cc;
-    text-decoration: underline;
+  color: #f0c;
+  text-decoration: underline;
 }
 
-input[type=button], input[type=reset] {
-    padding: 2px 5px;
-    margin: 3px 0;
-    border: 1px solid #848484;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: 0.5s;
-    outline: none;
+input[type=button],
+input[type=reset] {
+  border: 1px solid #848484;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 3px 0;
+  outline: none;
+  padding: 2px 5px;
+  transition: 0.5s;
 }
 
-input[type=button]:hover, input[type=reset]:hover {
-    border: 1px solid #050505;
-    color: #FFFFFF;
-    background-color: #050505;
+input[type=button]:hover,
+input[type=reset]:hover {
+  background-color: #050505;
+  border: 1px solid #050505;
+  color: #fff;
 }
 
-input[type=button]:active, input[type=reset]:active {
-    border: 1px solid lightcyan;
-    color: #050505;
-    background-color: lightcyan;
+input[type=button]:active,
+input[type=reset]:active {
+  background-color: lightcyan;
+  border: 1px solid lightcyan;
+  color: #050505;
 }
 
-input[type=text], input[type=password], input[type=email] {
-    padding: 2px 5px;
-    margin: 3px 0;
-    border: 1px solid #848484;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #050505;
-    transition: 0.5s;
-    outline: none;
+input[type=text],
+input[type=password],
+input[type=email] {
+  border: 1px solid #848484;
+  border-radius: 4px;
+  color: #050505;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px 0;
+  outline: none;
+  padding: 2px 5px;
+  transition: 0.5s;
 }
 
 input::placeholder {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
-    border: 1px solid #454545;
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+  border: 1px solid #454545;
 }
 
 input:-webkit-autofill,
@@ -79,14 +86,13 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-
-    -webkit-text-fill-color: #FFF;
-    -webkit-box-shadow: 0 0 0 1000px #888 inset;
+  -webkit-box-shadow: 0 0 0 1000px #888 inset;
+  -webkit-text-fill-color: #fff;
 }
 
 td {
-    font-size: 16px;
-    font-weight: bolder;
-    color: #050505;
-    text-align: center;
+  color: #050505;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: center;
 }

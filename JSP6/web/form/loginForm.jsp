@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<script src="${pageContext.request.contextPath}/js/loginForm.js"></script>
 <div style="display: flex; justify-content: center">
     <form id="loginForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
         <table>
