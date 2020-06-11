@@ -7,7 +7,7 @@
     errorLog = errorLog == null ? "" : URLDecoder.decode(errorLog, "UTF-8");
 %>
 <div style="display: flex; justify-content: center">
-    <form id="memberForm" action="<%=request.getContextPath()%>/index.jsp" method="post">
+    <form id="memberForm" action="<%=request.getContextPath()%>/membership/memberProc.jsp" method="post">
         <%=errorLog%>
         <table>
             <tr>
