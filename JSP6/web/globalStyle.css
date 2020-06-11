@@ -1,5 +1,5 @@
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Nanum Myeongjo', cursive;
 }
 
 a {
@@ -8,13 +8,11 @@ a {
 
 a:link {
   color: black;
-  font-family: sans-serif;
   text-decoration: none;
 }
 
 a:visited {
   color: black;
-  font-family: sans-serif;
   text-decoration: none;
 }
 
@@ -36,6 +34,8 @@ input[type=reset] {
   margin: 3px 0;
   outline: none;
   padding: 2px 5px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
 }
 
@@ -56,14 +56,21 @@ input[type=reset]:active {
 input[type=text],
 input[type=password],
 input[type=email] {
-  border: 1px solid #848484;
-  border-radius: 4px;
   color: #050505;
   font-size: 16px;
   font-weight: bold;
   margin: 3px 0;
   outline: none;
-  padding: 2px 5px;
+  padding: 6px;
+  background: #f8f8f8;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  filter: alpha(opacity:60);
+  opacity: 0.6;
   transition: 0.5s;
 }
 
@@ -86,7 +93,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #888 inset;
+  -webkit-box-shadow: 0 0 0 1000px #555 inset;
   -webkit-text-fill-color: #fff;
 }
 
@@ -94,5 +101,5 @@ td {
   color: #050505;
   font-size: 16px;
   font-weight: bolder;
-  text-align: center;
+  text-align: right;
 }
