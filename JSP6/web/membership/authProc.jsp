@@ -1,4 +1,5 @@
 <%@ page import="java.util.Random" %>
+<%@ page import="Care.Lab.ADMSHA512Hash" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <jsp:useBean id="mail" class="com.jin.mail.JinsMail"/>
 <jsp:setProperty property="id" name="mail" value="deusta12@gmail.com"/>
@@ -19,7 +20,7 @@
     String authString = generateAuthString();
     mail.SendMail("ANOMALY", "deusta12@gmail.com", email, "인증 이메일",
             "인증번호입니다.<br><br>" + authString);
-    session.setAttribute("authString", authString);
+    session.setAttribute("authString", ADMSHA512Hash.hashToHex(authString, "UTF-8"));
 %>
 <jsp:forward page="/index.jsp">
     <jsp:param name="form" value="member"/>

@@ -20,8 +20,8 @@ function checkEmail() {
 
 function checkMember(authString) {
     let ids = ['memberId', 'memberPw', 'memberPwOk', 'authNum'];
-    for (const i in ids)
-        if (!checkField(ids[i])) return;
+    for (const id of ids)
+        if (!checkField(id)) return;
     if (!checkPassword(ids[1], ids[2])) return;
     if (checkAuth(ids[3], authString))
         document.getElementById('memberForm').submit();
@@ -52,7 +52,12 @@ function checkPassword(password, passwordOk) {
 function checkAuth(authNum, authString) {
     let auth = document.getElementById('authNum');
     let authTarget = authString.toString();
-    if (auth.value !== authTarget) {
+
+    let authCredentialBefore = CryptoJS.SHA512(auth.value);
+    let authCredential = CryptoJS.enc.Hex.stringify(authCredentialBefore);
+    console.log('Target: ' + authTarget);
+    console.log('Resource: ' + authCredential);
+    if (authCredential !== authTarget) {
         alert('인증번호가 일치하지 않습니다.');
         auth.focus();
         return false;

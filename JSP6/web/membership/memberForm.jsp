@@ -1,10 +1,14 @@
+<%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String email = request.getParameter("email");
     String authString = (String) session.getAttribute("authString");
+    String errorLog = request.getParameter("errorLog");
+    errorLog = errorLog == null ? "" : URLDecoder.decode(errorLog, "UTF-8");
 %>
 <div style="display: flex; justify-content: center">
     <form id="memberForm" action="<%=request.getContextPath()%>/index.jsp" method="post">
+        <%=errorLog%>
         <table>
             <tr>
                 <td align='right' height=40>아이디</td>
@@ -39,12 +43,10 @@
             </tr>
             <tr>
                 <td align='center' height=40 colspan=4>
-                    <input type=button onclick="checkMember(<%=authString%>)" value='로그인' style="width: 120px; "/>
+                    <input type=button onclick="checkMember('<%=authString%>');" value='로그인' style="width: 120px; "/>
                     <input type=reset value='취소' style="width: 120px; "/>
                 </td>
             </tr>
         </table>
     </form>
-
 </div>
-<h2 id="errorLog" style="text-align: center"></h2>

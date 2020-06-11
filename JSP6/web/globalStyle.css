@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 a {
     transition: 0.3s;
 }
@@ -66,7 +70,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: #050505;
+    -webkit-text-fill-color: #FFF;
     -webkit-box-shadow: 0 0 0 1000px #888 inset;
 }
 
