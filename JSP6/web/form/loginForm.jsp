@@ -1,7 +1,14 @@
+<%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    String errorLog = request.getParameter("errorLog");
+    errorLog = errorLog == null ? "" : URLDecoder.decode(errorLog, "UTF-8");
+%>
 <script src="${pageContext.request.contextPath}/js/loginForm.js"></script>
-<div style="display: flex; justify-content: center">
-    <form id="loginForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
+<h3><%=errorLog%>
+</h3>
+<div style="display: flex; justify-content: center" onload="checkLogin('<%=errorLog%>')">
+    <form id="loginForm" action="${pageContext.request.contextPath}/form/loginProc.jsp" method="post">
         <table>
             <tr>
                 <td>아이디</td>

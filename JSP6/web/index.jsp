@@ -7,14 +7,13 @@
 
     SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddhhmmss");
     String form = request.getParameter("form");
-    String id = request.getParameter("id");
     if (form == null || "home".contentEquals(form))
         form = "/form/home.jsp";
+    else if ("logout".contentEquals(form))
+        form = "/form/logoutProc.jsp";
     else if ("member".contentEquals(form) || "auth".contentEquals(form))
         form = "/membership/" + form + "Form.jsp";
     else form = "/form/" + form + "Form.jsp";
-
-    if (id != null) session.setAttribute("id", id);
 %>
 <html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
