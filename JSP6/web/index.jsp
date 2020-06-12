@@ -9,7 +9,7 @@
     if (form == null || "home".contentEquals(form))
         form = "/form/home.jsp";
     else if ("logout".contentEquals(form))
-        form = "/form/logoutProc.jsp";
+        form = "/form/logout.jsp";
     else if ("member".contentEquals(form) || "auth".contentEquals(form))
         form = "/membership/" + form + "Form.jsp";
     else if ("board".contentEquals(form) || "view".contentEquals(form) || "write".contentEquals(form))

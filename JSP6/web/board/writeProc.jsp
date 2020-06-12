@@ -1,48 +1,86 @@
+<%@ page import="Care.Lab.Board" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/dbConnection.jspf" %>
-<jsp:useBean id="board" class="Care.Lab.Board"/>
+<%!
+    public MultipartRequest getMultiRequest(HttpServletRequest request, String uploadFile, int max) {
+        int maxSize = 1024 * 1024 * max;
+        String uploadFilePath = request.getServletContext().getRealPath(uploadFile);
+
+        MultipartRequest multiReq = null;
+        try {
+            multiReq = new MultipartRequest(
+                    request, uploadFilePath, maxSize, "utf-8",
+                    new DefaultFileRenamePolicy());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return multiReq;
+    }
+
+    public Board setBoard(MultipartRequest multipartRequest) {
+        Board board = new Board();
+        board.setId(multipartRequest.getParameter("writer"));
+        board.setTitle(multipartRequest.getParameter("title"));
+        board.setContents(multipartRequest.getParameter("contents"));
+        return board;
+    }
+
+    public boolean Insert(Connection connection, Board board) {
+        boolean result = true;
+        PreparedStatement statement = null;
+        String sql = "insert into BOARD " +
+                "(id, title, contents, writeDate) " +
+                "values (?, ?, ?, current_timestamp)";
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, board.getId());
+            statement.setString(2, board.getTitle());
+            statement.setString(3, board.getContents());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = false;
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+%>
 <%
-    //서버의 실제 경로
-    String uploadFilePath = request.getServletContext().getRealPath("uploadFile");
-    int maxSize = 1024 * 1024 * 10;   //10MB
-
-    MultipartRequest multiReq = new MultipartRequest(
-            request, uploadFilePath, maxSize, "utf-8",
-            new DefaultFileRenamePolicy());
-    out.print("파일경로 : " + uploadFilePath + "<br/>");
-    out.print("작성자 : " + multiReq.getParameter("writer") + "<br/>");
-    out.print("제목 : " + multiReq.getParameter("title") + "<br/>");
-    out.print("내용 : " + multiReq.getParameter("contents") + "<br/>");
-    out.print("파일 : " + multiReq.getParameter("uploadFile") + "<br/>"); //null 값을 갖는다.
-    out.print("업로드파일명 : " + multiReq.getFilesystemName("uploadFile") + "<br/>");
-    out.print("원래파일명 : " + multiReq.getOriginalFileName("uploadFile") + "<br/>");
-
-    out.print("<a href='" + uploadFilePath + "/" +
-            multiReq.getFilesystemName("uploadFile") + "'>" +
-            multiReq.getFilesystemName("uploadFile") + "</a>" + "<br/>");
-    out.print("<a href='" + request.getContextPath() + "/uploadFile/" +
-            multiReq.getFilesystemName("uploadFile") + "'>" +
-            multiReq.getFilesystemName("uploadFile") + "</a>");
-
-
-    board.setId(multiReq.getParameter("writer"));
-    board.setTitle(multiReq.getParameter("title"));
-    board.setContents(multiReq.getParameter("contents"));
+    MultipartRequest multipartRequest = getMultiRequest(request, "uploadFile", 100);
+    Board board = setBoard(multipartRequest);
 
     String form = "write";
+    String errorLog = "DB에 접근하지 못했습니다.";
     Connection connection = getConnection("192.168.0.108", "1521", "XE");
 
-    if (connection == null) {
-        out.print("DB에 접근하지 못했습니다.");
-    } else {
-        if (Insert(connection, board))
-            form = "board";
-        else out.print("ID가 존재합니다.");
-    }
+    if (connection != null && Insert(connection, board)) {
+%>
+<jsp:forward page="/board/boardProc.jsp"/>
+<%
+    } else
+        errorLog = "새 글을 작성하지 못했습니다.";
 %>
 <jsp:forward page="/index.jsp">
     <jsp:param name="form" value="<%=form%>"/>
     <jsp:param name="index" value='<%=request.getParameter("index")%>'/>
+    <jsp:param name="errorLog" value='<%=URLEncoder.encode(errorLog,"UTF-8")%>'/>
 </jsp:forward>
