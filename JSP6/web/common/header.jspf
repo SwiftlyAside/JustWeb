@@ -1,2 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%request.setCharacterEncoding("UTF-8"); %>
+<%
+    request.setCharacterEncoding("UTF-8");
+    String index = request.getParameter("index");
+    if (index == null || !index.contains("russia")) {
+%>
+<script>alert('CANNOT ACCESS THIS PAGE DIRECTLY ! ! !')</script>
+<%
+        return;
+    }
+%>

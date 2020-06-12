@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div style="text-align: center;">
     <form action="${pageContext.request.contextPath}/index.jsp" method="post">
+        <input type="hidden" name="index" value="<%=request.getParameter("index")%>">
         <input type="hidden" name="form" value="board">
         <table style="width: 650px; ">
             <tr>

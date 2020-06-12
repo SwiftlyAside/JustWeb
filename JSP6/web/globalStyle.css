@@ -2,6 +2,11 @@
   font-family: 'Open Sans', 'Nanum Myeongjo', cursive;
 }
 
+.formDiv {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   transition: 0.3s;
 }

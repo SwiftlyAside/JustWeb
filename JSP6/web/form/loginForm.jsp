@@ -3,12 +3,15 @@
 <%
     String errorLog = request.getParameter("errorLog");
     errorLog = errorLog == null ? "" : URLDecoder.decode(errorLog, "UTF-8");
+
+    String next = request.getParameter("index") + "login";
 %>
 <script src="${pageContext.request.contextPath}/js/loginForm.js"></script>
 <h3><%=errorLog%>
 </h3>
-<div style="display: flex; justify-content: center" onload="checkLogin('<%=errorLog%>')">
+<div class="formDiv" onload="checkLogin('<%=errorLog%>')">
     <form id="loginForm" action="${pageContext.request.contextPath}/form/loginProc.jsp" method="post">
+        <input type="hidden" name="index" value="<%=next%>">
         <table>
             <tr>
                 <td>아이디</td>
@@ -26,5 +29,4 @@
             </tr>
         </table>
     </form>
-    </h3>
 </div>

@@ -3,6 +3,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/dbConnection.jspf" %>
 <%
+    if (!request.getParameter("index").contains("login")) {
+%>
+<script>alert('Abnormal access!')</script>
+<%
+        return;
+    }
+%>
+<%
     String form = "login";
     String errorLog = "";
     String id = request.getParameter("id");

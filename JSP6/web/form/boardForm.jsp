@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
-<center>
+<div class="formDiv">
     <form action="${pageContext.request.contextPath}/index.jsp" method="post">
-		<input type="hidden" name="form" value="write">
+        <input type="hidden" name="form" value="write">
         <table style="width: 650px; ">
             <thead>
             <tr>
@@ -77,4 +76,4 @@
             </tr>
         </table>
     </form>
-</center>
+</div>

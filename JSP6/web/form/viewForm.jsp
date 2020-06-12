@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<center>
+<div class="formDiv">
 <table style="width: 650px; ">
 	<tr>
 		<td style="width: 300px; height:40px;" valign="middle"><h2>게시판 확인</h2></td>
@@ -34,4 +34,4 @@
 		</td>
 	</tr>
 </table>
-</center>
+</div>

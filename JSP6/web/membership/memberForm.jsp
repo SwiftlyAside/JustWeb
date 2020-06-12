@@ -6,8 +6,9 @@
     String errorLog = request.getParameter("errorLog");
     errorLog = errorLog == null ? "" : URLDecoder.decode(errorLog, "UTF-8");
 %>
-<div style="display: flex; justify-content: center">
+<div class="formDiv">
     <form id="memberForm" action="<%=request.getContextPath()%>/membership/memberProc.jsp" method="post">
+        <input type="hidden" name="index" value="<%=request.getParameter("index")%>">
         <%=errorLog%>
         <table>
             <tr>
