@@ -1,6 +1,7 @@
 <%@ page import="Care.Lab.ADMSHA512Hash" %>
 <%@ page import="Care.Lab.Member" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="Care.Lab.Board" %>
 <%!
     public boolean Insert(Connection connection, Member member) {
         boolean result = true;
@@ -15,6 +16,41 @@
             statement.setString(2, ADMSHA512Hash.hashToHex(member.getPw(), "UTF-8"));
             statement.setString(3, member.getGender());
             statement.setString(4, member.getEmail());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = false;
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+
+    public boolean Insert(Connection connection, Board board) {
+        boolean result = true;
+        PreparedStatement statement = null;
+        String sql = "insert into BOARD " +
+                "(id, title, contents, writeDate) " +
+                "values (?, ?, ?, current_timestamp)";
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, board.getId());
+            statement.setString(2, board.getTitle());
+            statement.setString(3, board.getContents());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
