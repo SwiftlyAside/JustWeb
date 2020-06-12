@@ -32,29 +32,31 @@ a:active {
 }
 
 input[type=button],
-input[type=reset] {
-  border: 1px solid #848484;
+input[type=reset],
+input[type=submit] {
+  border: 1px dotted #ccc;
   border-radius: 4px;
   font-size: 16px;
+  font-weight: bold;
   margin: 3px 0;
   outline: none;
-  padding: 2px 5px;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 6px;
   transition: 0.5s;
 }
 
 input[type=button]:hover,
-input[type=reset]:hover {
+input[type=reset]:hover,
+input[type=submit]:hover {
   background-color: #050505;
   border: 1px solid #050505;
   color: #fff;
 }
 
 input[type=button]:active,
-input[type=reset]:active {
-  background-color: lightcyan;
-  border: 1px solid lightcyan;
+input[type=reset]:active,
+input[type=submit]:active {
+  background-color: mintcream;
+  border: 1px solid mintcream;
   color: #050505;
 }
 
@@ -83,9 +85,26 @@ input::placeholder {
   font-size: 14px;
 }
 
+textarea {
+  resize: none;
+  font-size: 16px;
+  outline: none;
+  padding: 6px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  filter: alpha(opacity:80);
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
 input[type=text]:focus,
 input[type=password]:focus,
-input[type=email]:focus {
+input[type=email]:focus,
+textarea:focus {
   border: 1px solid #454545;
 }
 

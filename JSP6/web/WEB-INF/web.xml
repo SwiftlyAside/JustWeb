@@ -8,6 +8,7 @@
             <url-pattern>/form/*</url-pattern>
             <url-pattern>/Login/*</url-pattern>
             <url-pattern>/membership/*</url-pattern>
+            <url-pattern>/board/*</url-pattern>
             <include-prelude>/common/header.jspf</include-prelude>
         </jsp-property-group>
     </jsp-config>

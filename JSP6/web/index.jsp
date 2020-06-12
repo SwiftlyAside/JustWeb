@@ -12,13 +12,14 @@
         form = "/form/logoutProc.jsp";
     else if ("member".contentEquals(form) || "auth".contentEquals(form))
         form = "/membership/" + form + "Form.jsp";
+    else if ("board".contentEquals(form) || "view".contentEquals(form) || "write".contentEquals(form))
+        form = "/board/" + form + "Form.jsp";
     else form = "/form/" + form + "Form.jsp";
     request.setAttribute("index", "russia");
 %>
 <html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/globalScript.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">

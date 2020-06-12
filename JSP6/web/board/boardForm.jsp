@@ -30,18 +30,19 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 40px; height:40px;" align="center"><input type="checkbox"/></td>
-                <td style="width: 330px; height:40px;" align="center">자주 이용해 주세요</td>
-                <td style="width: 80px; height:40px;" align="center">관리자</td>
-                <td style="width: 120px; height:40px;" align="center">20xx.xx.xx</td>
-                <td style="width: 80px; height:40px;" align="center">1</td>
+                <td style="width: 40px; height:40px;text-align: center;"><input type="checkbox"/></td>
+                <td style="width: 330px; height:40px;text-align: center;">자주 이용해 주세요</td>
+                <td style="width: 80px; height:40px;text-align: center;">관리자</td>
+                <td style="width: 120px; height:40px;text-align: center;">20xx.xx.xx</td>
+                <td style="width: 80px; height:40px;text-align: center;">1</td>
             </tr>
             <tr>
-                <td style="width: 40px; height:40px;" align="center"><input type="checkbox"/></td>
-                <td style="width: 330px; height:40px;" align="center">게시판 확인</td>
-                <td style="width: 80px; height:40px;" align="center">관리자</td>
-                <td style="width: 120px; height:40px;" align="center">20xx.xx.xx</td>
-                <td style="width: 80px; height:40px;" align="center">10</td>
+                <td style="width: 40px; height:40px;text-align: center;"
+                ><input type="checkbox"/></td>
+                <td style="width: 330px; height:40px;text-align: center;">게시판 확인</td>
+                <td style="width: 80px; height:40px;text-align: center;">관리자</td>
+                <td style="width: 120px; height:40px;text-align: center;">20xx.xx.xx</td>
+                <td style="width: 80px; height:40px;text-align: center;">10</td>
             </tr>
             <tr>
                 <td colspan=5>
@@ -50,9 +51,9 @@
             </tr>
             <tr>
                 <td colspan=2><input type="checkbox"/>전체선택</td>
-                <td colspan=3 align="right">
+                <td colspan=3 style="text-align: right">
                     <input type="button" value='삭제' style="width: 100px; "/>
-                    <input type="button" value='글쓰기' style="width: 100px; "/>
+                    <input type="submit" value='글쓰기' style="width: 100px; "/>
                 </td>
             </tr>
             <tr>

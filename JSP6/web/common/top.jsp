@@ -4,7 +4,7 @@
 %>
 <table style="width:800px">
     <tr>
-        <td style="text-align: center" colspan=5><h2 style="font-family: 'Audiowide', cursive">Take a look.</h2></td>
+        <td style="text-align: center" colspan=5><h2 style="font-family: 'Julius Sans One', sans-serif;">Take a look.</h2></td>
     </tr>
     <tr style="text-align: right">
         <td style="width: 600px"></td>

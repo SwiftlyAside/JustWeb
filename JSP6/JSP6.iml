@@ -26,5 +26,6 @@
     <orderEntry type="library" name="JAX-WS-Apache Axis" level="application" />
     <orderEntry type="library" name="jinsMail" level="project" />
     <orderEntry type="library" name="crypto-js" level="application" />
+    <orderEntry type="library" name="cos" level="application" />
   </component>
 </module>
