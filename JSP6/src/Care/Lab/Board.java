@@ -14,6 +14,17 @@ public class Board {
     // 작성일
     private Date writeDate;
 
+    public Board() {
+    }
+
+    public Board(Integer no, String id, String title, String contents, Date writeDate) {
+        this.no = no;
+        this.id = id;
+        this.title = title;
+        this.contents = contents;
+        this.writeDate = writeDate;
+    }
+
     public Integer getNo() {
         return no;
     }

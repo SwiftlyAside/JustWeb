@@ -33,8 +33,8 @@
         boolean result = true;
         PreparedStatement statement = null;
         String sql = "insert into BOARD " +
-                "(id, title, contents, writeDate) " +
-                "values (?, ?, ?, current_timestamp)";
+                "(no, id, title, contents, writeDate) " +
+                "values ((select nvl(max(no), 0) + 1 from BOARD), ?, ?, ?, current_timestamp)";
 
         try {
             statement = connection.prepareStatement(sql);

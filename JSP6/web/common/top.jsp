@@ -18,7 +18,7 @@
         } else {
         %>
         <td><a href="<%=request.getContextPath()%>/index.jsp?form=logout"><%=sessionId%> 로그아웃</a></td>
-        <td><a href="<%=request.getContextPath()%>/index.jsp?form=board">게시판</a></td>
+        <td><a href="<%=request.getContextPath()%>/board/boardProc.jsp?index=russia">게시판</a></td>
         <%
             }
         %>

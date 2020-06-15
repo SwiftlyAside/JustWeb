@@ -1,3 +1,5 @@
+<%@ page import="Care.Lab.Board" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="formDiv">
     <form action="${pageContext.request.contextPath}/index.jsp" method="post">
@@ -29,28 +31,28 @@
                     <hr/>
                 </td>
             </tr>
+            <%
+                List<Board> boardList = (List<Board>) request.getAttribute("boardList");
+                for (Board board : boardList)
+                {
+            %>
             <tr>
-                <td style="width: 40px; height:40px;text-align: center;"><input type="checkbox"/></td>
-                <td style="width: 330px; height:40px;text-align: center;">자주 이용해 주세요</td>
-                <td style="width: 80px; height:40px;text-align: center;">관리자</td>
-                <td style="width: 120px; height:40px;text-align: center;">20xx.xx.xx</td>
-                <td style="width: 80px; height:40px;text-align: center;">1</td>
+                <td class='checkTD'><input type='checkbox' value=<%=board.getNo()%>></td>
+                <td class='titleTD'><%=board.getTitle()%></td>
+                <td class='writerTD'><%=board.getId()%></td>
+                <td class='dateTD'><%=board.getWriteDate()%></td>
+                <td class='numberTD'><%=board.getNo()%></td>
             </tr>
-            <tr>
-                <td style="width: 40px; height:40px;text-align: center;"
-                ><input type="checkbox"/></td>
-                <td style="width: 330px; height:40px;text-align: center;">게시판 확인</td>
-                <td style="width: 80px; height:40px;text-align: center;">관리자</td>
-                <td style="width: 120px; height:40px;text-align: center;">20xx.xx.xx</td>
-                <td style="width: 80px; height:40px;text-align: center;">10</td>
-            </tr>
+            <%
+                }
+            %>
             <tr>
                 <td colspan=5>
                     <hr/>
                 </td>
             </tr>
             <tr>
-                <td colspan=2><input type="checkbox"/>전체선택</td>
+                <td colspan=2 style="text-align: right"><input type="checkbox"/>전체선택</td>
                 <td colspan=3 style="text-align: right">
                     <input type="button" value='삭제' style="width: 100px; "/>
                     <input type="submit" value='글쓰기' style="width: 100px; "/>
