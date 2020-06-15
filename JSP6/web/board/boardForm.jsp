@@ -1,6 +1,10 @@
 <%@ page import="Care.Lab.Board" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    List<Board> boardList = (List<Board>) request.getAttribute("boardList");
+    String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&pageNum=";
+%>
 <div class="formDiv">
     <form action="${pageContext.request.contextPath}/index.jsp" method="post">
         <input type="hidden" name="form" value="write">
@@ -32,16 +36,18 @@
                 </td>
             </tr>
             <%
-                List<Board> boardList = (List<Board>) request.getAttribute("boardList");
-                for (Board board : boardList)
-                {
+                for (Board board : boardList) {
             %>
             <tr>
                 <td class='checkTD'><input type='checkbox' value=<%=board.getNo()%>></td>
-                <td class='titleTD'><%=board.getTitle()%></td>
-                <td class='writerTD'><%=board.getId()%></td>
-                <td class='dateTD'><%=board.getWriteDate()%></td>
-                <td class='numberTD'><%=board.getNo()%></td>
+                <td class='titleTD'><%=board.getTitle()%>
+                </td>
+                <td class='writerTD'><%=board.getId()%>
+                </td>
+                <td class='dateTD'><%=board.getWriteDate()%>
+                </td>
+                <td class='numberTD'><%=board.getNo()%>
+                </td>
             </tr>
             <%
                 }
@@ -52,7 +58,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan=2 style="text-align: right"><input type="checkbox"/>전체선택</td>
+                <td colspan=2 style="text-align: left"><input type="checkbox"/>전체선택</td>
                 <td colspan=3 style="text-align: right">
                     <input type="button" value='삭제' style="width: 100px; "/>
                     <input type="submit" value='글쓰기' style="width: 100px; "/>
@@ -63,8 +69,17 @@
                     <hr/>
                 </td>
             </tr>
+            <tr>
+                <td colspan="5" style="text-align: center">
+                    이전&nbsp;
+                    <a href="<%=url + 1%>">1&nbsp;</a>
+                    <a href="<%=url + 2%>">2&nbsp;</a>
+                    <a href="<%=url + 3%>">3&nbsp;</a>
+                    <a href="<%=url + 4%>">4&nbsp;</a>
+                    다음
+                </td>
+            </tr>
         </table>
-        이전 1 2 3 4 다음
         <table>
             <tr>
                 <td>

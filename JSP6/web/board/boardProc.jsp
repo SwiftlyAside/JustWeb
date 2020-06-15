@@ -52,8 +52,9 @@
     }
 %>
 <%
-    int pageNum = 0;
-    int blockSize = 10;
+    int pageNum = request.getParameter("pageNum") != null ?
+            Integer.parseInt(request.getParameter("pageNum")) - 1 : 0;
+    int blockSize = 5;
     Connection connection = getConnection("192.168.0.108", "1521", "XE");
     if (connection != null) {
         List<Board> s = Select(connection, pageNum * blockSize, (pageNum + 1) * blockSize);
