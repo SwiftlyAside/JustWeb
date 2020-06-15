@@ -3,7 +3,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     List<Board> boardList = (List<Board>) request.getAttribute("boardList");
-    String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&pageNum=";
+    int total = (int) request.getAttribute("total");
+    int pageNum = request.getParameter("pageNum") != null ?
+            Integer.parseInt(request.getParameter("pageNum")) : 1;
+    int block = request.getParameter("block") != null ?
+            Integer.parseInt(request.getParameter("block")) : 5;
+    int pages = total / block + (total % block > 0 ? 1 : 0);
+    String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&block=" + block + "&pageNum=";
 %>
 <div class="formDiv">
     <form action="${pageContext.request.contextPath}/index.jsp" method="post">
@@ -40,7 +46,8 @@
             %>
             <tr>
                 <td class='checkTD'><input type='checkbox' value=<%=board.getNo()%>></td>
-                <td class='titleTD'><%=board.getTitle()%>
+                <td class='titleTD'><a><%=board.getTitle()%>
+                </a>
                 </td>
                 <td class='writerTD'><%=board.getId()%>
                 </td>
@@ -71,12 +78,31 @@
             </tr>
             <tr>
                 <td colspan="5" style="text-align: center">
-                    이전&nbsp;
-                    <a href="<%=url + 1%>">1&nbsp;</a>
-                    <a href="<%=url + 2%>">2&nbsp;</a>
-                    <a href="<%=url + 3%>">3&nbsp;</a>
-                    <a href="<%=url + 4%>">4&nbsp;</a>
-                    다음
+                    <%
+                        if (pageNum != 1) {
+                    %>
+                    <a href="<%=url + (pageNum - 1)%>">이전&nbsp;</a>
+                    <%
+                        }
+                        for (int i = 1; i <= pages; i++) {
+                            if (i == pageNum) {
+                    %>
+                    <a href="<%=url + i%>"><u><%=i%></u>&nbsp;</a>
+                    <%
+                    } else {
+                    %>
+                    <a href="<%=url + i%>"><%=i%>&nbsp;</a>
+                    <%
+                            }
+                        }
+                    %>
+                    <%
+                        if (pageNum != pages) {
+                    %>
+                    <a href="<%=url + (pageNum + 1)%>">다음</a>
+                    <%
+                        }
+                    %>
                 </td>
             </tr>
         </table>

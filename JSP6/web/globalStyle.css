@@ -52,8 +52,34 @@ a:visited {
 }
 
 a:hover {
-  color: #c30;
+  background-image: repeating-linear-gradient(to left, violet, indigo, blue, green, deepskyblue, mediumorchid);
+  background-size: 800% 800%;
+  animation-duration: 8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: rainbow;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bold;
+  text-decoration: none;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 25%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
 }
 
 a:active {
