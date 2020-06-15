@@ -81,6 +81,8 @@
         List<Board> s = Select(connection, pageNum * blockSize, (pageNum + 1) * blockSize);
         request.setAttribute("boardList", s);
         request.setAttribute("total", getTotal(connection));
+        request.setAttribute("block", blockSize);
+        request.setAttribute("pageNum", pageNum + 1);
         try {
             connection.close();
         } catch (SQLException e) {

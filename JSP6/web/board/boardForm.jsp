@@ -1,13 +1,12 @@
 <%@ page import="Care.Lab.Board" %>
 <%@ page import="java.util.List" %>
+<%@ page import="Care.Common.MenuNavigation" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     List<Board> boardList = (List<Board>) request.getAttribute("boardList");
     int total = (int) request.getAttribute("total");
-    int pageNum = request.getParameter("pageNum") != null ?
-            Integer.parseInt(request.getParameter("pageNum")) : 1;
-    int block = request.getParameter("block") != null ?
-            Integer.parseInt(request.getParameter("block")) : 5;
+    int pageNum = (int) request.getAttribute("pageNum");
+    int block = (int) request.getAttribute("block");
     int pages = total / block + (total % block > 0 ? 1 : 0);
     String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&block=" + block + "&pageNum=";
 %>
@@ -77,21 +76,22 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="5" style="text-align: center">
-                    <%
+                <td colspan="5" style="text-align: center;">
+                    <%=MenuNavigation.getNavigation(pageNum, block, total, url)%>
+<%--                    <%
                         if (pageNum != 1) {
                     %>
-                    <a href="<%=url + (pageNum - 1)%>">이전&nbsp;</a>
+                    <a class='clearText' href="<%=url + (pageNum - 1)%>">이전&nbsp;</a>
                     <%
                         }
                         for (int i = 1; i <= pages; i++) {
                             if (i == pageNum) {
                     %>
-                    <a href="<%=url + i%>"><u><%=i%></u>&nbsp;</a>
+                    <a class='clearText' href="<%=url + i%>"><u><%=i%></u>&nbsp;</a>
                     <%
                     } else {
                     %>
-                    <a href="<%=url + i%>"><%=i%>&nbsp;</a>
+                    <a class='clearText' href="<%=url + i%>"><%=i%>&nbsp;</a>
                     <%
                             }
                         }
@@ -99,10 +99,10 @@
                     <%
                         if (pageNum != pages) {
                     %>
-                    <a href="<%=url + (pageNum + 1)%>">다음</a>
+                    <a class="clearText" href="<%=url + (pageNum + 1)%>">다음</a>
                     <%
                         }
-                    %>
+                    %>--%>
                 </td>
             </tr>
         </table>

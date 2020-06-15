@@ -37,6 +37,10 @@
   text-align: center;
 }
 
+.clearText {
+  color: deepskyblue !important;
+}
+
 a {
   transition: 0.3s;
 }
