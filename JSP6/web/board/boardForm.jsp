@@ -12,8 +12,11 @@
 %>
 <script src="${pageContext.request.contextPath}/js/boardForm.js"></script>
 <div class="formDiv">
-    <form action="${pageContext.request.contextPath}/index.jsp" method="post">
+    <form id="writeForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
         <input type="hidden" name="form" value="write">
+    </form>
+    <form id="deleteForm" action="${pageContext.request.contextPath}/board/deleteProc.jsp" method="post">
+        <input type="hidden" name="index" value="russia">
         <table style="width: 650px; ">
             <thead>
             <tr>
@@ -45,7 +48,9 @@
                 for (Board board : boardList) {
             %>
             <tr>
-                <td class='checkTD'><input type='checkbox' value=<%=board.getNo()%>></td>
+                <td class='checkTD'>
+                    <input type='checkbox' name="delNo" value=<%=board.getNo()%>>
+                </td>
                 <td class='titleTD'><a href="<%=urlV + board.getNo()%>"><%=board.getTitle()%>
                 </a>
                 </td>
@@ -69,8 +74,10 @@
                     <input type="checkbox" id="allCB" onchange="selectAllCheckBoxes()"/>전체선택
                 </td>
                 <td colspan=3 style="text-align: right">
-                    <input type="button" value='삭제' style="width: 100px; "/>
-                    <input type="submit" value='글쓰기' style="width: 100px; "/>
+                    <input type="button" value='삭제' style="width: 100px; "
+                           onclick="document.getElementById('deleteForm').submit()"/>
+                    <input type="button" value='글쓰기' style="width: 100px; "
+                           onclick="document.getElementById('writeForm').submit()"/>
                 </td>
             </tr>
             <tr>

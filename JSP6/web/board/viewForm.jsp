@@ -3,6 +3,7 @@
 <%
     Board board = (Board) request.getAttribute("board");
 %>
+<script src="${pageContext.request.contextPath}/js/viewForm.js"></script>
 <div class="formDiv">
     <table style="width: 650px; ">
         <tr>
@@ -40,7 +41,8 @@
                 <input type=button style="width: 60px; " value='답글'
                        onclick="document.getElementById('toReplyForm').submit()"/>
                 <input type=button style="width: 60px; " value='수정'/>
-                <input type=button style="width: 60px; " value='삭제'/>
+                <input type=button style="width: 60px; " value='삭제'
+                       onclick="toDelete()"/>
                 <input type=button style="width: 60px; " value='목록'
                        onclick="document.getElementById('toBoardForm').submit()"/>
                 <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
@@ -49,7 +51,10 @@
                 <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>
                 <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
-                <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
+                <form id="toDeleteForm" action="${pageContext.request.contextPath}/board/deleteProc.jsp?index=russia"
+                      method="post">
+                    <input type="hidden" name="delNo" value="<%=board.getNo()%>">
+                </form>
                 <form id="toBoardForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>
             </td>
