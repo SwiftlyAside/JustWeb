@@ -8,7 +8,7 @@
 %>
 <div class="formDiv">
     <form id="memberForm" action="<%=request.getContextPath()%>/membership/memberProc.jsp" method="post">
-        <input type="hidden" name="index" value="<%=request.getParameter("index")%>">
+        <input type="hidden" name="index" value='<%=request.getParameter("index")%>'>
         <%=errorLog%>
         <table>
             <tr>
@@ -45,9 +45,14 @@
             <tr>
                 <td align='center' height=40 colspan=4>
                     <input type=button onclick="checkMember('<%=authString%>');" value='로그인' style="width: 120px; "/>
-                    <input type=reset value='취소' style="width: 120px; "/>
+                    <input type=button onclick="cancel()" value='취소' style="width: 120px; "/>
                 </td>
             </tr>
         </table>
+    </form>
+    <form id="cancelForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
+        <input type="hidden" name="index" value='<%=request.getParameter("index")%>'>
+        <input type="hidden" name="form" value="auth">
+        <input type="hidden" name="email" value="<%=email%>">
     </form>
 </div>

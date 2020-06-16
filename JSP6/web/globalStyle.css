@@ -41,6 +41,13 @@
   color: deepskyblue !important;
 }
 
+pre {
+  text-align: justify;
+  padding: 10px;
+  width: 650px;
+  white-space: pre-wrap;
+}
+
 a {
   transition: 0.3s;
 }

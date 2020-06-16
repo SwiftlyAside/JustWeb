@@ -47,3 +47,7 @@ function checkAuth(authNum, authString) {
         return false;
     } else return true;
 }
+
+function cancel() {
+    document.getElementById('cancelForm').submit();
+}
