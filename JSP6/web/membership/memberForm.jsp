@@ -45,7 +45,7 @@
             <tr>
                 <td align='center' height=40 colspan=4>
                     <input type=button onclick="checkMember('<%=authString%>');" value='로그인' style="width: 120px; "/>
-                    <input type=button onclick="cancel()" value='취소' style="width: 120px; "/>
+                    <input type=button onclick="document.getElementById('cancelForm').submit()" value='취소' style="width: 120px; "/>
                 </td>
             </tr>
         </table>

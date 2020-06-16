@@ -34,12 +34,24 @@
             </td>
         </tr>
         <tr>
-            <td colspan=2 align="right">
-                <input type=button style="width: 60px; " value='글쓰기'/>
-                <input type=button style="width: 60px; " value='답글'/>
+            <td colspan=2>
+                <input type=button style="width: 60px; " value='글쓰기'
+                       onclick="document.getElementById('toWriteForm').submit()"/>
+                <input type=button style="width: 60px; " value='답글'
+                       onclick="document.getElementById('toReplyForm').submit()"/>
                 <input type=button style="width: 60px; " value='수정'/>
                 <input type=button style="width: 60px; " value='삭제'/>
-                <input type=button style="width: 60px; " value='목록'/>
+                <input type=button style="width: 60px; " value='목록'
+                       onclick="document.getElementById('toBoardForm').submit()"/>
+                <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
+                    <input type="hidden" name="form" value="write">
+                </form>
+                <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
+                      method="post"></form>
+                <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
+                <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
+                <form id="toBoardForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
+                      method="post"></form>
             </td>
         </tr>
     </table>
