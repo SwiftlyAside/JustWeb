@@ -68,8 +68,7 @@
     private void insertHits(Connection connection, int no) {
         PreparedStatement statement = null;
         String sql =
-                "insert into HITS values (?, 0)";
-
+                "insert into HITS values (?, 1)";
         try {
             statement = connection.prepareStatement(sql);
             statement.setInt(1, no);
@@ -92,7 +91,6 @@
         String sql =
                 "update HITS set READNO = READNO + 1 " +
                         "where NO = ?";
-
         try {
             statement = connection.prepareStatement(sql);
             statement.setInt(1, no);

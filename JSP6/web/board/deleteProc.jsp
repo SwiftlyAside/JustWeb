@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/dbConnection.jspf" %>
 <%!
-    public boolean Delete(Connection connection, int no) {
+    private boolean Delete(Connection connection, int no) {
         boolean result = true;
         PreparedStatement statement = null;
         String sql = "delete from BOARD where NO = ?";

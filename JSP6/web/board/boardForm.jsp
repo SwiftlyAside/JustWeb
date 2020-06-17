@@ -3,9 +3,11 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="Care.Lab.Hits" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    List<Board> boardList = (List<Board>) request.getAttribute("boardList");
+    Map<Board, Hits> boardList = (Map<Board, Hits>) request.getAttribute("boardList");
+
     int total = (int) request.getAttribute("total");
     int pageNum = (int) request.getAttribute("pageNum");
     int block = (int) request.getAttribute("block");
@@ -13,7 +15,7 @@
     String searchBy = request.getParameter("searchBy");
     String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&block=" + block + "&pageNum=";
     if (search != null) {
-        url = request.getContextPath() + "/board/searchProc.jsp?index=russia&search=" +
+        url = request.getContextPath() + "/board/boardProc.jsp?index=russia&search=" +
                 search + "&searchBy=" + searchBy + "&block=" + block + "&pageNum=";
     }
     String urlV = request.getContextPath() + "/board/viewProc.jsp?index=russia&no=";
@@ -28,45 +30,45 @@
         <table style="width: 650px; ">
             <thead>
             <tr>
-                <th style="width: 40px; height:20px;" align="center">선택</th>
-                <th style="width: 330px; height:20px;" align="center">제 목</th>
-                <th style="width: 80px; height:20px;" align="center">작성자</th>
-                <th style="width: 120px; height:20px;" align="center">작성일</th>
-                <th style="width: 80px; height:20px;" align="center">조회수</th>
+                <th style="width: 40px; height:20px; text-align: center">선택</th>
+                <th style="width: 330px; height:20px; text-align: center">제 목</th>
+                <th style="width: 80px; height:20px; text-align: center">작성자</th>
+                <th style="width: 120px; height:20px; text-align: center">작성일</th>
+                <th style="width: 80px; height:20px; text-align: center">조회수</th>
             </tr>
             </thead>
             <tr>
-                <td style="width: 40px; height:20px;" align="center">
+                <td style="width: 40px; height:20px; text-align: center">
                     <hr/>
                 </td>
-                <td style="width: 330px; height:20px;" align="center">
+                <td style="width: 330px; height:20px; text-align: center">
                     <hr/>
                 </td>
-                <td style="width: 80px; height:20px;" align="center">
+                <td style="width: 80px; height:20px; text-align: center">
                     <hr/>
                 </td>
-                <td style="width: 120px; height:20px;" align="center">
+                <td style="width: 120px; height:20px; text-align: center">
                     <hr/>
                 </td>
-                <td style="width: 80px; height:20px;" align="center">
+                <td style="width: 80px; height:20px; text-align: center">
                     <hr/>
                 </td>
             </tr>
             <%
-                for (Board board : boardList) {
+                for (Map.Entry<Board, Hits> entry : boardList.entrySet()) {
             %>
             <tr>
                 <td class='checkTD'>
-                    <input type='checkbox' name="delNo" value=<%=board.getNo()%>>
+                    <input type='checkbox' name="delNo" value=<%=entry.getKey().getNo()%>>
                 </td>
-                <td class='titleTD'><a href="<%=urlV + board.getNo()%>"><%=board.getTitle()%>
+                <td class='titleTD'><a href="<%=urlV + entry.getKey().getNo()%>"><%=entry.getKey().getTitle()%>
                 </a>
                 </td>
-                <td class='writerTD'><%=board.getId()%>
+                <td class='writerTD'><%=entry.getKey().getId()%>
                 </td>
-                <td class='dateTD'><%=board.getWriteDate()%>
+                <td class='dateTD'><%=entry.getKey().getWriteDate()%>
                 </td>
-                <td class='numberTD'><%=board.getNo()%>
+                <td class='numberTD'><%=entry.getValue().getReadNo()%>
                 </td>
             </tr>
             <%
@@ -99,7 +101,7 @@
                 </td>
             </tr>
         </table>
-        <table>
+        <table style="display: flex; justify-content: center">
             <tr>
                 <td>
                     <%
@@ -114,7 +116,7 @@
             </tr>
         </table>
     </form>
-    <form id="searchForm" action="${pageContext.request.contextPath}/board/searchProc.jsp?index=russia" method="post">
+    <form id="searchForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post">
         <input type="hidden" id="hiddenSearchBy" name="searchBy">
         <input type="hidden" id="hiddenSearchValue" name="search">
     </form>
