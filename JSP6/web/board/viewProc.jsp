@@ -1,44 +1,9 @@
 <%@ page import="Care.Lab.Board" %>
+<%@ page import="Care.Lab.Hits" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/dbConnection.jspf" %>
 <%!
-    public Board getView(Connection connection, int no) {
-        Board result = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet;
-        String sql = "select no, id, title, contents, writedate " +
-                "from BOARD " +
-                "where no = ?";
-
-        try {
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, no);
-            resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                result = new Board(
-                        resultSet.getInt("no"),
-                        resultSet.getString("id"),
-                        resultSet.getString("title"),
-                        resultSet.getString("contents"),
-                        resultSet.getDate("writeDate")
-                );
-                setHits(connection, no);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return result;
-    }
-
     private void setHits(Connection connection, int no) {
         PreparedStatement statement = null;
         ResultSet resultSet;
@@ -111,28 +76,25 @@
 <%
     int no = request.getParameter("no") != null ?
             Integer.parseInt(request.getParameter("no")) : -1;
+
     Connection connection = getConnection("localhost", "1521", "XE");
-    if (connection != null && no != -1) {
-        Board board = getView(connection, no);
-        if (board != null) {
+    Map<Board, Hits> boardList = (Map<Board, Hits>) session.getAttribute("boardList");
+
+    for (Board board : boardList.keySet()) {
+        if (no == board.getNo()) {
             request.setAttribute("board", board);
-%>
-<jsp:forward page="/index.jsp">
-    <jsp:param name="form" value="view"/>
-</jsp:forward>
-<%
+            setHits(connection, board.getNo());
+            break;
+        }
+    }
+    if (connection != null) {
         try {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-} else {
 %>
-<jsp:forward page="/board/boardProc.jsp">
-    <jsp:param name="index" value="russia"/>
+<jsp:forward page="/index.jsp">
+    <jsp:param name="form" value="view"/>
 </jsp:forward>
-<%
-    }
-%>
-

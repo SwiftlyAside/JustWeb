@@ -10,8 +10,8 @@
     img:hover {
         width: 300%;
         height: 300%;
-        -webkit-transform: scale(300, 300);
-        transform: scale(300, 300);
+        -webkit-transform: scale(10, 10);
+        transform: scale(10, 10);
     }
 
     @media ( max-width: 1023px ) {

@@ -40,13 +40,14 @@
                        onclick="document.getElementById('toWriteForm').submit()"/>
                 <input type=button style="width: 60px; " value='답글'
                        onclick="document.getElementById('toReplyForm').submit()"/>
-                <input type=button style="width: 60px; " value='수정'/>
+                <input type=button style="width: 60px; " value='수정' onclick="toModify()"/>
                 <input type=button style="width: 60px; " value='삭제'
                        onclick="toDelete()"/>
                 <input type=button style="width: 60px; " value='목록'
                        onclick="document.getElementById('toBoardForm').submit()"/>
                 <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
                     <input type="hidden" name="form" value="write">
+                    <input type="hidden" name="todo">
                 </form>
                 <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>
