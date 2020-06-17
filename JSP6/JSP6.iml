@@ -27,5 +27,6 @@
     <orderEntry type="library" name="jinsMail" level="project" />
     <orderEntry type="library" name="crypto-js" level="application" />
     <orderEntry type="library" name="cos" level="application" />
+    <orderEntry type="library" name="normalize" level="application" />
   </component>
 </module>

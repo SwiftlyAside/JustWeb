@@ -76,7 +76,7 @@ a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 @keyframes rainbow {

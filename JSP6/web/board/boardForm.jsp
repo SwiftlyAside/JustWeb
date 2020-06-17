@@ -1,13 +1,21 @@
-<%@ page import="Care.Common.MenuNavigation" %>
+<%@ page import="Care.Common.BoardTools" %>
 <%@ page import="Care.Lab.Board" %>
+<%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     List<Board> boardList = (List<Board>) request.getAttribute("boardList");
     int total = (int) request.getAttribute("total");
     int pageNum = (int) request.getAttribute("pageNum");
     int block = (int) request.getAttribute("block");
+    String search = request.getParameter("search");
+    String searchBy = request.getParameter("searchBy");
     String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&block=" + block + "&pageNum=";
+    if (search != null) {
+        url = request.getContextPath() + "/board/searchProc.jsp?index=russia&search=" +
+                search + "&searchBy=" + searchBy + "&block=" + block + "&pageNum=";
+    }
     String urlV = request.getContextPath() + "/board/viewProc.jsp?index=russia&no=";
 %>
 <script src="${pageContext.request.contextPath}/js/boardForm.js"></script>
@@ -87,22 +95,27 @@
             </tr>
             <tr>
                 <td colspan="5" style="text-align: center;">
-                    <%=MenuNavigation.getNavigation(pageNum, block, total, url)%>
+                    <%=BoardTools.getNavigation(pageNum, block, total, url)%>
                 </td>
             </tr>
         </table>
         <table>
             <tr>
                 <td>
-                    <select>
-                        <option>전체</option>
-                        <option>제목</option>
-                        <option>작성자</option>
-                    </select>
-                    <input type=text name='search'/>
-                    <input type=button name='searchBtn' value='검색' style="width: 80px; "/>
+                    <%
+                        String scriptFunctionName = "toSearchForm()";
+                        Map<String, String> map = new HashMap<>();
+                        map.put("전체", "all");
+                        map.put("제목", "title");
+                        map.put("작성자", "writer");
+                    %>
+                    <%=BoardTools.getSearchWord(map, scriptFunctionName)%>
                 </td>
             </tr>
         </table>
+    </form>
+    <form id="searchForm" action="${pageContext.request.contextPath}/board/searchProc.jsp?index=russia" method="post">
+        <input type="hidden" id="hiddenSearchBy" name="searchBy">
+        <input type="hidden" id="hiddenSearchValue" name="search">
     </form>
 </div>
