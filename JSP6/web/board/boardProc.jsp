@@ -1,7 +1,8 @@
 <%@ page import="Care.Lab.Board" %>
 <%@ page import="Care.Lab.Hits" %>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.LinkedHashMap" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/common/dbConnection.jspf" %>
 <%!
@@ -59,8 +60,7 @@
             if (resultSet.next()) {
                 hits.setNo(resultSet.getInt(1));
                 hits.setReadNo(resultSet.getInt(2));
-            }
-            else {
+            } else {
                 hits.setNo(no);
                 hits.setReadNo(0);
             }
@@ -151,10 +151,10 @@
     Connection connection = getConnection("localhost", "1521", "XE");
     if (connection != null) {
         Map<Board, Hits> s = Select(connection, pageNum * blockSize, (pageNum + 1) * blockSize, conditional);
-        request.setAttribute("boardList", s);
-        request.setAttribute("total", getTotal(connection, conditional));
-        request.setAttribute("block", blockSize);
-        request.setAttribute("pageNum", pageNum + 1);
+        session.setAttribute("boardList", s);
+        session.setAttribute("total", getTotal(connection, conditional));
+        session.setAttribute("block", blockSize);
+        session.setAttribute("pageNum", pageNum + 1);
         try {
             connection.close();
         } catch (SQLException e) {

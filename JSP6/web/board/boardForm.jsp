@@ -1,16 +1,15 @@
 <%@ page import="Care.Common.BoardTools" %>
 <%@ page import="Care.Lab.Board" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="Care.Lab.Hits" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    Map<Board, Hits> boardList = (Map<Board, Hits>) request.getAttribute("boardList");
+    Map<Board, Hits> boardList = (Map<Board, Hits>) session.getAttribute("boardList");
 
-    int total = (int) request.getAttribute("total");
-    int pageNum = (int) request.getAttribute("pageNum");
-    int block = (int) request.getAttribute("block");
+    int total = (int) session.getAttribute("total");
+    int pageNum = (int) session.getAttribute("pageNum");
+    int block = (int) session.getAttribute("block");
     String search = request.getParameter("search");
     String searchBy = request.getParameter("searchBy");
     String url = request.getContextPath() + "/board/boardProc.jsp?index=russia&block=" + block + "&pageNum=";
