@@ -11,9 +11,10 @@
         PreparedStatement statement = null;
         ResultSet resultSet;
         String sql = "select * from (" +
-                "select no, id, title, contents, writedate, ROWNUM as rn " +
+                "select no, id, title, contents, writedate, READNO, ROWNUM as rn " +
                 "from (" +
-                "select * from BOARD " +
+                "select b.NO, b.ID, b.TITLE, b.CONTENTS, b.WRITEDATE, NVL(H.READNO, 0) as READNO " +
+                "from BOARD b left join HITS H on b.NO = H.NO " +
                 conditional +
                 " order by no desc)) " +
                 "where rn > ? and rn <= ?";
@@ -30,7 +31,8 @@
                                 resultSet.getString(2),
                                 resultSet.getString(3),
                                 resultSet.getString(4),
-                                resultSet.getDate(5)
+                                resultSet.getDate(5),
+                                resultSet.getInt(6)
                         ),
                         getHits(connection, resultSet.getInt(1)));
             }
@@ -144,12 +146,20 @@
     String searchBy = request.getParameter("searchBy");
     String search = request.getParameter("search");
     String conditional = getConditional(searchBy, search);
+    String[] delNos = request.getParameterValues("delNo");
     int pageNum = request.getParameter("pageNum") != null ?
             Integer.parseInt(request.getParameter("pageNum")) - 1 : 0;
     int blockSize = request.getParameter("block") != null ?
             Integer.parseInt(request.getParameter("block")) : 5;
     Connection connection = getConnection("localhost", "1521", "XE");
     if (connection != null) {
+        if (delNos != null) {
+            for (String delNo : delNos) {
+                if (!Delete(connection, Integer.parseInt(delNo))) {
+                    System.out.println("다음 글은 삭제가 정상적으로 처리되지 않았습니다.: " + delNo);
+                }
+            }
+        }
         Map<Board, Hits> s = Select(connection, pageNum * blockSize, (pageNum + 1) * blockSize, conditional);
         session.setAttribute("boardList", s);
         session.setAttribute("total", getTotal(connection, conditional));

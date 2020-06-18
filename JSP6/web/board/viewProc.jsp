@@ -6,60 +6,17 @@
 <%!
     private void setHits(Connection connection, int no) {
         PreparedStatement statement = null;
-        ResultSet resultSet;
-        String sql = "select * " +
-                "from HITS " +
-                "where NO = ?";
+        String sql = "MERGE INTO HITS USING DUAL ON (NO = ?) " +
+                "WHEN MATCHED THEN " +
+                "UPDATE SET READNO = READNO + 1 " +
+                "WHEN NOT MATCHED THEN " +
+                "INSERT VALUES (?, 1)";
 
         try {
             statement = connection.prepareStatement(sql);
             statement.setInt(1, no);
-            resultSet = statement.executeQuery();
-            if (resultSet.next()) updateHits(connection, no);
-            else insertHits(connection, no);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private void insertHits(Connection connection, int no) {
-        PreparedStatement statement = null;
-        String sql =
-                "insert into HITS values (?, 1)";
-        try {
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, no);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private void updateHits(Connection connection, int no) {
-        PreparedStatement statement = null;
-        String sql =
-                "update HITS set READNO = READNO + 1 " +
-                        "where NO = ?";
-        try {
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, no);
-            statement.execute();
+            statement.setInt(2, no);
+            statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

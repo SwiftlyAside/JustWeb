@@ -52,7 +52,7 @@
                 <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>
                 <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
-                <form id="toDeleteForm" action="${pageContext.request.contextPath}/board/deleteProc.jsp?index=russia"
+                <form id="toDeleteForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post">
                     <input type="hidden" name="delNo" value="<%=board.getNo()%>">
                 </form>

@@ -13,16 +13,27 @@ public class Board {
     private String contents;
     // 작성일
     private Date writeDate;
+    // 조회
+    private Integer hit;
 
     public Board() {
     }
 
-    public Board(Integer no, String id, String title, String contents, Date writeDate) {
+    public Board(Integer no, String id, String title, String contents, Date writeDate, Integer hit) {
         this.no = no;
         this.id = id;
         this.title = title;
         this.contents = contents;
         this.writeDate = writeDate;
+        this.hit = hit;
+    }
+
+    public Integer getHit() {
+        return hit;
+    }
+
+    public void setHit(Integer hit) {
+        this.hit = hit;
     }
 
     public Integer getNo() {
@@ -63,14 +74,5 @@ public class Board {
 
     public void setWriteDate(Date writeDate) {
         this.writeDate = writeDate;
-    }
-
-    // Board 모델 복사
-    public void CopyData(Board param) {
-        this.no = param.getNo();
-        this.id = param.getId();
-        this.title = param.getTitle();
-        this.contents = param.getContents();
-        this.writeDate = param.getWriteDate();
     }
 }

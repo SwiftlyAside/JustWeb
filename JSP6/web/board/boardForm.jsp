@@ -24,7 +24,7 @@
     <form id="writeForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
         <input type="hidden" name="form" value="write">
     </form>
-    <form id="deleteForm" action="${pageContext.request.contextPath}/board/deleteProc.jsp" method="post">
+    <form id="deleteForm" action="${pageContext.request.contextPath}/board/boardProc.jsp" method="post">
         <input type="hidden" name="index" value="russia">
         <table style="width: 650px; ">
             <thead>
@@ -67,7 +67,7 @@
                 </td>
                 <td class='dateTD'><%=entry.getKey().getWriteDate()%>
                 </td>
-                <td class='numberTD'><%=entry.getValue().getReadNo()%>
+                <td class='numberTD'><%=entry.getKey().getHit()%>
                 </td>
             </tr>
             <%
