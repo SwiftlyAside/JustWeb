@@ -86,11 +86,11 @@
     String form = "write";
     String errorLog = "DB에 접근하지 못했습니다.";
     Connection connection = getConnection("localhost", "1521", "XE");
-    String modded = multipartRequest.getParameter("modded");
+    String modifyNo = multipartRequest.getParameter("modifyNo");
     boolean success = false;
     if (connection != null) {
-        if (modded != null && !"".contentEquals(modded)) {
-            board.setNo(((Board) session.getAttribute("board")).getNo());
+        if (!"".contentEquals(modifyNo)) {
+            board.setNo(Integer.parseInt(modifyNo));
             success = Update(connection, board);
         } else {
             success = Insert(connection, board);

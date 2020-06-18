@@ -1,6 +1,10 @@
-function toModify() {
-    let param = document.getElementById('modify');
-    param.value = 1;
+function toModify(no, title, contents) {
+    let param1 = document.getElementById('modifyNo');
+    let param2 = document.getElementById('modifyTitle');
+    let param3 = document.getElementById('modifyContents');
+    param1.value = no;
+    param2.value = title;
+    param3.value = contents;
     document.getElementById('toWriteForm').submit();
 }
 

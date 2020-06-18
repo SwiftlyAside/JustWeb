@@ -40,14 +40,16 @@
                        onclick="document.getElementById('toWriteForm').submit()"/>
                 <input type=button style="width: 60px; " value='답글'
                        onclick="document.getElementById('toReplyForm').submit()"/>
-                <input type=button style="width: 60px; " value='수정' onclick="toModify()"/>
+                <input type=button style="width: 60px; " value='수정'
+                       onclick="toModify('<%=board.getNo()%>','<%=board.getTitle()%>','<%=board.getContents()%>')"/>
                 <input type=button style="width: 60px; " value='삭제'
                        onclick="toDelete()"/>
                 <input type=button style="width: 60px; " value='목록'
                        onclick="document.getElementById('toBoardForm').submit()"/>
-                <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
-                    <input type="hidden" name="form" value="write">
-                    <input type="hidden" id="modify" name="modify">
+                <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp?form=write" method="post">
+                    <input type="hidden" id="modifyNo" name="modifyNo">
+                    <input type="hidden" id="modifyTitle" name="modifyTitle">
+                    <input type="hidden" id="modifyContents" name="modifyContents">
                 </form>
                 <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>
