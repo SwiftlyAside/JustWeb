@@ -1,7 +1,7 @@
 <%@ page import="Care.Lab.Board" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    Board board = (Board) request.getAttribute("board");
+    Board board = (Board) session.getAttribute("board");
 %>
 <script src="${pageContext.request.contextPath}/js/viewForm.js"></script>
 <div class="formDiv">
@@ -47,7 +47,7 @@
                        onclick="document.getElementById('toBoardForm').submit()"/>
                 <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp" method="post">
                     <input type="hidden" name="form" value="write">
-                    <input type="hidden" name="todo">
+                    <input type="hidden" id="modify" name="modify">
                 </form>
                 <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
                       method="post"></form>

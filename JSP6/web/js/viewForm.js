@@ -1,5 +1,7 @@
 function toModify() {
-    console.log('아직 때가 아니다.');
+    let param = document.getElementById('modify');
+    param.value = 1;
+    document.getElementById('toWriteForm').submit();
 }
 
 function toDelete() {

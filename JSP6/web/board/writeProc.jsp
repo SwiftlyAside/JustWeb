@@ -31,13 +31,11 @@
 
     public boolean Insert(Connection connection, Board board) {
         boolean result = true;
-        PreparedStatement statement = null;
         String sql = "insert into BOARD " +
                 "(no, id, title, contents, writeDate) " +
                 "values ((select nvl(max(no), 0) + 1 from BOARD), ?, ?, ?, current_timestamp)";
 
-        try {
-            statement = connection.prepareStatement(sql);
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, board.getId());
             statement.setString(2, board.getTitle());
             statement.setString(3, board.getContents());
@@ -46,13 +44,30 @@
             e.printStackTrace();
             result = false;
         } finally {
-            if (statement != null) {
+            if (connection != null) {
                 try {
-                    statement.close();
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
+        }
+        return result;
+    }
+
+    private boolean Update(Connection connection, Board board) {
+        boolean result = true;
+        String sql = "update BOARD set TITLE = ?, CONTENTS = ? where NO = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, board.getTitle());
+            statement.setString(2, board.getContents());
+            statement.setInt(3, board.getNo());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = false;
+        } finally {
             if (connection != null) {
                 try {
                     connection.close();
@@ -70,9 +85,18 @@
 
     String form = "write";
     String errorLog = "DB에 접근하지 못했습니다.";
-    Connection connection = getConnection("192.168.0.108", "1521", "XE");
-
-    if (connection != null && Insert(connection, board)) {
+    Connection connection = getConnection("localhost", "1521", "XE");
+    String modded = multipartRequest.getParameter("modded");
+    boolean success = false;
+    if (connection != null) {
+        if (modded != null && !"".contentEquals(modded)) {
+            board.setNo(((Board) session.getAttribute("board")).getNo());
+            success = Update(connection, board);
+        } else {
+            success = Insert(connection, board);
+        }
+    }
+    if (success) {
 %>
 <jsp:forward page="/board/boardProc.jsp"/>
 <%

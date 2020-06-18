@@ -5,28 +5,18 @@
 <%@include file="/common/dbConnection.jspf" %>
 <%!
     private void setHits(Connection connection, int no) {
-        PreparedStatement statement = null;
         String sql = "MERGE INTO HITS USING DUAL ON (NO = ?) " +
                 "WHEN MATCHED THEN " +
                 "UPDATE SET READNO = READNO + 1 " +
                 "WHEN NOT MATCHED THEN " +
                 "INSERT VALUES (?, 1)";
 
-        try {
-            statement = connection.prepareStatement(sql);
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, no);
             statement.setInt(2, no);
             statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 %>
@@ -39,7 +29,7 @@
 
     for (Board board : boardList.keySet()) {
         if (no == board.getNo()) {
-            request.setAttribute("board", board);
+            session.setAttribute("board", board);
             setHits(connection, board.getNo());
             break;
         }
