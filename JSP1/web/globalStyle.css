@@ -1,0 +1,199 @@
+* {
+  font-family: 'Cute Font', cursive;
+}
+
+.formDiv {
+  width: 80%;
+  margin: auto;
+}
+
+.checkTD {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.titleTD {
+  width: 330px;
+  height: 40px;
+  text-align: center;
+}
+
+.writerTD {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+}
+
+.dateTD {
+  width: 120px;
+  height: 40px;
+  text-align: center;
+}
+
+.numberTD {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+}
+
+.clearText {
+  color: deepskyblue !important;
+}
+
+pre {
+  font-family: 'Nanum Myeongjo', sans-serif;
+  text-align: justify;
+  padding: 10px;
+  width: 650px;
+  white-space: pre-wrap;
+}
+
+a {
+  font-size: 36px;
+  font-weight: bolder;
+  transition: 0.3s;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  background-image: repeating-linear-gradient(to left, violet, indigo, blue, green, deepskyblue, mediumorchid);
+  background-size: 800% 800%;
+  animation-duration: 8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: rainbow;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 25%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+a:active {
+  color: #f0c;
+  text-decoration: underline;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  border: 1px dotted #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px 0;
+  outline: none;
+  padding: 6px;
+  transition: 0.5s;
+}
+
+input[type=button]:hover,
+input[type=reset]:hover,
+input[type=submit]:hover {
+  background-color: #050505;
+  border: 1px solid #050505;
+  color: #fff;
+}
+
+input[type=button]:active,
+input[type=reset]:active,
+input[type=submit]:active {
+  background-color: mintcream;
+  border: 1px solid mintcream;
+  color: #050505;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+  color: #050505;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px 0;
+  outline: none;
+  padding: 6px;
+  background: #f8f8f8;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  filter: alpha(opacity:60);
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  font-size: 16px;
+  outline: none;
+  padding: 6px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  filter: alpha(opacity:80);
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+textarea:focus {
+  border: 1px solid #454545;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #555 inset;
+  -webkit-text-fill-color: #fff;
+}
+
+td {
+  color: #050505;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: right;
+}

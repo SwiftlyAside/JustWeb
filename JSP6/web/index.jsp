@@ -18,6 +18,9 @@
     request.setAttribute("index", "russia");
 %>
 <html>
+<head>
+    <title>Take A Look</title>
+</head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/globalScript.js"></script>
 <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
