@@ -12,13 +12,12 @@
         contents = "";
         buttonName = "글쓰기";
     }
-    String in = request.getParameter("index") + "write";
 %>
 <script src="${pageContext.request.contextPath}/js/writeForm.js"></script>
 <div class="formDiv">
-    <form id="writeForm" action="${pageContext.request.contextPath}/board/writeProc.jsp?index=<%=in%>" method="post"
+    <form id="writeForm" action="${pageContext.request.contextPath}/board/writeProc.jsp?index=russiawrite" method="post"
           enctype="multipart/form-data">
-        <input type="hidden" id="modded" name="modifyNo" value="<%=no%>">
+        <input type="hidden" name="modifyNo" value="<%=no%>">
         <table style="width: 650px; ">
             <tr>
                 <td style="width: 80px; height:40px;text-align: right">작성자</td>
@@ -43,7 +42,7 @@
             </tr>
             <tr>
                 <td style="text-align: center" height=40 colspan=2>
-                    <input type=button onclick="checkWrite('<%=no%>')" value='<%=buttonName%>' style="width: 120px; "/>
+                    <input type=button onclick="checkWrite()" value='<%=buttonName%>' style="width: 120px; "/>
                     <input type=reset value='취소' style="width: 120px; "/>
                 </td>
             </tr>

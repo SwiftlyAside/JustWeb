@@ -57,7 +57,9 @@
 
     private boolean Update(Connection connection, Board board) {
         boolean result = true;
-        String sql = "update BOARD set TITLE = ?, CONTENTS = ? where NO = ?";
+        String sql = "update BOARD " +
+                "set TITLE = ?, CONTENTS = ?, WRITEDATE = current_timestamp " +
+                "where NO = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, board.getTitle());
@@ -83,8 +85,7 @@
     MultipartRequest multipartRequest = getMultiRequest(request, "uploadFile", 100);
     Board board = setBoard(multipartRequest);
 
-    String form = "write";
-    String errorLog = "DB에 접근하지 못했습니다.";
+    String errorLog = "새 글을 작성하지 못했습니다.";
     Connection connection = getConnection("localhost", "1521", "XE");
     String modifyNo = multipartRequest.getParameter("modifyNo");
     boolean success = false;
@@ -92,19 +93,16 @@
         if (!"".contentEquals(modifyNo)) {
             board.setNo(Integer.parseInt(modifyNo));
             success = Update(connection, board);
-        } else {
+        } else
             success = Insert(connection, board);
-        }
     }
     if (success) {
 %>
 <jsp:forward page="/board/boardProc.jsp"/>
 <%
-    } else
-        errorLog = "새 글을 작성하지 못했습니다.";
+} else
 %>
 <jsp:forward page="/index.jsp">
-    <jsp:param name="form" value="<%=form%>"/>
-    <jsp:param name="index" value='<%=request.getParameter("index")%>'/>
+    <jsp:param name="form" value="write"/>
     <jsp:param name="errorLog" value='<%=URLEncoder.encode(errorLog,"UTF-8")%>'/>
 </jsp:forward>
