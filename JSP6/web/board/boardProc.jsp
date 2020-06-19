@@ -155,8 +155,10 @@
     if (connection != null) {
         if (delNos != null) {
             for (String delNo : delNos) {
-                if (!Delete(connection, Integer.parseInt(delNo))) {
-                    System.out.println("다음 글은 삭제가 정상적으로 처리되지 않았습니다.: " + delNo);
+                if (!"".contentEquals(delNo)) {
+                    if (!Delete(connection, Integer.parseInt(delNo))) {
+                        System.out.println("다음 글은 삭제가 정상적으로 처리되지 않았습니다.: " + delNo);
+                    }
                 }
             }
         }

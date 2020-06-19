@@ -2,13 +2,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String userId = (String) session.getAttribute("userId");
-    String replyNo = request.getParameter("replyParentNo");
+    String parentNo = request.getParameter("replyParentNo");
     String no = request.getParameter("modifyNo");
     String title;
     String contents;
     String buttonName = "수정";
 
-    if (replyNo != null) System.out.println("REPLY TO: " + replyNo);
+    if (parentNo == null) parentNo = "";
     if (no == null || "".contentEquals(no)) {
         no = "";
         title = "";
@@ -24,6 +24,7 @@
 <div class="formDiv">
     <form id="writeForm" action="${pageContext.request.contextPath}/board/writeProc.jsp?index=russiawrite" method="post"
           enctype="multipart/form-data">
+        <input type="hidden" name="parentNo" value="<%=parentNo%>">
         <input type="hidden" name="modifyNo" value="<%=no%>">
         <table style="width: 650px; ">
             <tr>
