@@ -1,4 +1,5 @@
 <%@ page import="Care.Lab.Board" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     Board board = (Board) session.getAttribute("board");
@@ -39,27 +40,23 @@
                 <input type=button style="width: 60px; " value='글쓰기'
                        onclick="document.getElementById('toWriteForm').submit()"/>
                 <input type=button style="width: 60px; " value='답글'
-                       onclick="document.getElementById('toReplyForm').submit()"/>
+                       onclick="toReply('<%=board.getNo()%>')"/>
                 <input type=button style="width: 60px; " value='수정'
-                       onclick="toModify('<%=board.getNo()%>','<%=board.getTitle()%>','<%=board.getContents()%>')"/>
+                       onclick="toModify('<%=board.getNo()%>','<%=URLEncoder.encode(board.getTitle(), "UTF-8")%>','<%=URLEncoder.encode(board.getContents(), "UTF-8")%>')"/>
                 <input type=button style="width: 60px; " value='삭제'
-                       onclick="toDelete()"/>
+                       onclick="toDelete('<%=board.getNo()%>')"/>
                 <input type=button style="width: 60px; " value='목록'
                        onclick="document.getElementById('toBoardForm').submit()"/>
                 <form id="toWriteForm" action="${pageContext.request.contextPath}/index.jsp?form=write" method="post">
+                    <input type="hidden" id="replyParentNo" name="replyParentNo">
                     <input type="hidden" id="modifyNo" name="modifyNo">
                     <input type="hidden" id="modifyTitle" name="modifyTitle">
                     <input type="hidden" id="modifyContents" name="modifyContents">
                 </form>
-                <form id="toReplyForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
-                      method="post"></form>
-                <form action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia" method="post"></form>
-                <form id="toDeleteForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
-                      method="post">
-                    <input type="hidden" name="delNo" value="<%=board.getNo()%>">
-                </form>
                 <form id="toBoardForm" action="${pageContext.request.contextPath}/board/boardProc.jsp?index=russia"
-                      method="post"></form>
+                      method="post">
+                    <input type="hidden" id="delNo" name="delNo">
+                </form>
             </td>
         </tr>
     </table>

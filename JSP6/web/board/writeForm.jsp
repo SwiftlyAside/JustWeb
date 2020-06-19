@@ -1,16 +1,23 @@
+<%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String userId = (String) session.getAttribute("userId");
+    String replyNo = request.getParameter("replyParentNo");
     String no = request.getParameter("modifyNo");
-    String title = request.getParameter("modifyTitle");
-    String contents = request.getParameter("modifyContents");
+    String title;
+    String contents;
     String buttonName = "수정";
 
+    if (replyNo != null) System.out.println("REPLY TO: " + replyNo);
     if (no == null || "".contentEquals(no)) {
         no = "";
         title = "";
         contents = "";
         buttonName = "글쓰기";
+    }
+    else {
+        title = URLDecoder.decode(request.getParameter("modifyTitle"), "UTF-8");
+        contents = URLDecoder.decode(request.getParameter("modifyContents"), "UTF-8");
     }
 %>
 <script src="${pageContext.request.contextPath}/js/writeForm.js"></script>
