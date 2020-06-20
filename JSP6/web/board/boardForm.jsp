@@ -55,12 +55,19 @@
             </tr>
             <%
                 for (Map.Entry<Board, Hits> entry : boardList.entrySet()) {
+                    StringBuilder reply = new StringBuilder();
+                    Integer level = entry.getKey().getLevel();
+                    if (level > 1)
+                        reply.append("<img style='padding-left:")
+                                .append(10 * (level - 1)).append("px' ")
+                                .append("src='").append(request.getContextPath()).append("/icon_reply.png' ")
+                                .append("width='8' height='8' alt='답글'>&nbsp;");
             %>
             <tr>
                 <td class='checkTD'>
                     <input type='checkbox' name="delNo" value=<%=entry.getKey().getNo()%>>
                 </td>
-                <td class='titleTD'><a href="<%=urlV + entry.getKey().getNo()%>"><%=entry.getKey().getTitle()%>
+                <td class='titleTD'><a href="<%=urlV + entry.getKey().getNo()%>"><%=reply + entry.getKey().getTitle()%>
                 </a>
                 </td>
                 <td class='writerTD'><%=entry.getKey().getId()%>

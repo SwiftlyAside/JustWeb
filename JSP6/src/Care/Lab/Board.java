@@ -15,17 +15,28 @@ public class Board {
     private Date writeDate;
     // 조회
     private Integer hit;
+    // 레벨
+    private Integer level;
 
     public Board() {
     }
 
-    public Board(Integer no, String id, String title, String contents, Date writeDate, Integer hit) {
+    public Board(Integer level, Integer no, String id, String title, String contents, Date writeDate, Integer hit) {
+        this.level = level;
         this.no = no;
         this.id = id;
         this.title = title;
         this.contents = contents;
         this.writeDate = writeDate;
         this.hit = hit;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
     public Integer getHit() {

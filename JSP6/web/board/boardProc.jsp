@@ -11,12 +11,18 @@
         PreparedStatement statement = null;
         ResultSet resultSet;
         String sql = "select * from (" +
-                "select no, id, title, contents, writedate, READNO, ROWNUM as rn " +
+                "select LEVEL, no, id, title, contents, writeDate, readNo, pno, depth, " +
+                "ROWNUM AS rn " +
                 "from (" +
-                "select b.NO, b.ID, b.TITLE, b.CONTENTS, b.WRITEDATE, NVL(H.READNO, 0) as READNO " +
-                "from BOARD b left join HITS H on b.NO = H.NO " +
+                "select b.no, b.id, b.title, b.contents, b.writeDate, " +
+                "nvl(h.readNo, 0) as readNo, " +
+                "nvl(r.pno, 0) as pno, " +
+                "nvl(r.depth, 0) as depth " +
+                "from board b " +
+                "LEFT JOIN Hits h ON b.no = h.no " +
+                "LEFT JOIN reply r ON b.no = r.no " +
                 conditional +
-                " order by no desc)) " +
+                ") START WITH pno = 0 CONNECT BY PRIOR no = pno ORDER SIBLINGS BY no desc) " +
                 "where rn > ? and rn <= ?";
 
         try {
@@ -28,11 +34,12 @@
             while (resultSet.next()) {
                 results.put(new Board(
                                 resultSet.getInt(1),
-                                resultSet.getString(2),
+                                resultSet.getInt(2),
                                 resultSet.getString(3),
                                 resultSet.getString(4),
-                                resultSet.getDate(5),
-                                resultSet.getInt(6)
+                                resultSet.getString(5),
+                                resultSet.getDate(6),
+                                resultSet.getInt(7)
                         ),
                         getHits(connection, resultSet.getInt(1)));
             }
