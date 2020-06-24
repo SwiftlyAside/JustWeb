@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="Care.Common.BoardTools" %>
 <%@ page import="Care.Lab.Board" %>
 <%@ page import="Care.Lab.Hits" %>

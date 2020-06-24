@@ -25,5 +25,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.35" level="application_server_libraries" />
     <orderEntry type="library" name="JAX-WS-Apache Axis" level="application" />
+    <orderEntry type="library" name="normalize" level="application" />
   </component>
 </module>

@@ -12,6 +12,7 @@
           <element id="library" level="project" name="jinsMail" />
           <element id="library" level="application" name="ojdbc8" />
           <element id="library" level="application" name="cos" />
+          <element id="library" level="application" name="jstl:jstl:1.2" />
         </element>
       </element>
     </root>
