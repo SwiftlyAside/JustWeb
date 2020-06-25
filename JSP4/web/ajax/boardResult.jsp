@@ -16,7 +16,7 @@
             while (rs.next()) {
                 sb.append(prefix);
                 prefix = ",";
-                String json = String.format("{'no':'%d', 'id':'%s', 'title':'%s', 'writeDate':'%s'}",
+                String json = String.format("{'no':'%d','id':'%s','title':'%s','writeDate':'%s'}",
                         rs.getInt("no"), rs.getString("id"), rs.getString("title"), rs.getString("writeDate"));
                 sb.append(json);
             }

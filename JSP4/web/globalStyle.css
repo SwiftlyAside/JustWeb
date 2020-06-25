@@ -63,7 +63,7 @@ span {
 }
 
 #board .titleTD {
-  width: 660px;
+  width: 620px;
 }
 
 #board .idTD {
@@ -71,7 +71,7 @@ span {
 }
 
 #board .dateTD {
-  width: 70px;
+  width: 100px;
 }
 
 #board .noTD {

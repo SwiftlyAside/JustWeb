@@ -1,7 +1,3 @@
-<%--
-  Date: 2020-06-25
-  Time: 오후 2:38
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -11,7 +7,7 @@
 <body>
 <div id="board">
     <div id="input">
-        <input type="text" id="findStr" value="findStr">
+        <input type="text" id="findStr">
         <input type="button" id="btnFind" value="검색">
     </div>
     <div id="table">
@@ -33,5 +29,6 @@
         </div>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/ajax/boardList.js"></script>
 </body>
 </html>
