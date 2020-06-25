@@ -29,5 +29,8 @@
     <orderEntry type="library" name="cos" level="application" />
     <orderEntry type="library" name="normalize" level="application" />
     <orderEntry type="library" name="jstl:jstl:1.2" level="application" />
+    <orderEntry type="library" name="normalize" level="application" />
+    <orderEntry type="library" name="crypto-js" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

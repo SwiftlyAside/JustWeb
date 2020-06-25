@@ -1,0 +1,17 @@
+<%@ page import="java.sql.*" %>
+<%!
+    public Connection getConnection(String url, String port, String db) {
+        Connection connection = null;
+        String jdbcDriver = String.format("jdbc:oracle:thin:@%s:%s:%s", url, port, db);
+        String dbUser = "c##jin";
+        String dbPass = "jin1234";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+%>

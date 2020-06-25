@@ -2,6 +2,43 @@
   font-family: 'Open Sans', '나눔스퀘어라운드 Regular', cursive;
 }
 
+#board {
+  width: 1000px;
+  min-height: 300px;
+  margin: 10px auto;
+  position: relative;
+  border: 1px solid #aaa;
+}
+
+#board > #input {
+  position: absolute;
+  right: 0;
+}
+
+#board > #table > #title {
+  background: #888;
+  color: #fff;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+#board #table {
+  position: relative;
+  top: 30px;
+}
+
+/*
+span {
+  color: #050505;
+  font-size: 16px;
+  text-align: right;
+}
+*/
+
+#board #table span {
+  display: inline-block;
+}
+
 .fs1 {
   width: 500px;
   padding: 20px;
@@ -25,28 +62,24 @@
   text-align: center;
 }
 
-.titleTD {
-  width: 330px;
-  height: 40px;
-  text-align: left;
+#board .titleTD {
+  width: 660px;
 }
 
-.writerTD {
-  width: 80px;
-  height: 40px;
-  text-align: center;
+#board .idTD {
+  width: 150px;
 }
 
-.dateTD {
-  width: 120px;
-  height: 40px;
-  text-align: center;
+#board .dateTD {
+  width: 70px;
 }
 
-.numberTD {
-  width: 80px;
-  height: 40px;
-  text-align: center;
+#board .noTD {
+  width: 90px;
+}
+
+#board #list > div:nth-child(5n) {
+  border-bottom: 1px solid #ddd;
 }
 
 .clearText {
@@ -201,8 +234,3 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #fff;
 }
 
-td {
-  color: #050505;
-  font-size: 16px;
-  text-align: right;
-}
