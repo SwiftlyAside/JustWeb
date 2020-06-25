@@ -30,6 +30,7 @@ btn2.onclick = () => {
                                     <li>date : ${jsonElement.date}</li>
                                     <li>hit : ${jsonElement.hit}</li>
                                     <hr>`;
+            localStorage.setItem('jason', JSON.stringify(json));
         }
     };
     xhr.send();
