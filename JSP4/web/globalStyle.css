@@ -1,25 +1,22 @@
+/* 전역 설정, 유저 영역 선택 불가 */
 * {
   font-family: 'Open Sans', '나눔스퀘어라운드 Regular', cursive;
+  user-select: none;
 }
 
 #board {
-  width: 1000px;
-  min-height: 300px;
-  margin: 10px auto;
-  position: relative;
   border: 1px solid #aaa;
-}
-
-#board > #input {
-  position: absolute;
-  right: 0;
+  margin: 10px auto;
+  min-height: 300px;
+  position: relative;
+  width: 1000px;
 }
 
 #board > #table > #title {
   background: #888;
+  box-sizing: border-box;
   color: #fff;
   padding: 3px;
-  box-sizing: border-box;
 }
 
 #board #table {
@@ -27,28 +24,20 @@
   top: 30px;
 }
 
-/*
-span {
-  color: #050505;
-  font-size: 16px;
-  text-align: right;
-}
-*/
-
 #board #table span {
   display: inline-block;
 }
 
 .fs1 {
-  width: 500px;
-  padding: 20px;
   box-sizing: border-box;
+  padding: 20px;
+  width: 500px;
 }
 
 .fs2 {
-  width: 500px;
-  padding: 20px;
   box-sizing: border-box;
+  padding: 20px;
+  width: 500px;
 }
 
 .formDiv {
@@ -57,9 +46,9 @@ span {
 }
 
 .checkTD {
-  width: 40px;
   height: 40px;
   text-align: center;
+  width: 40px;
 }
 
 #board .titleTD {
@@ -78,20 +67,31 @@ span {
   width: 90px;
 }
 
+#board .row:hover {
+  background: #ddd;
+  cursor: pointer;
+}
+
 #board #list > div:nth-child(5n) {
   border-bottom: 1px solid #ddd;
 }
 
-.clearText {
-  color: deepskyblue !important;
+header {
+  height: 30px;
+  position: relative;
+}
+
+header > #input {
+  position: absolute;
+  right: 0;
 }
 
 pre {
   font-family: '나눔스퀘어라운드 Regular', sans-serif;
-  text-align: justify;
   padding: 10px;
-  width: 650px;
+  text-align: justify;
   white-space: pre-wrap;
+  width: 650px;
 }
 
 a {
@@ -109,20 +109,20 @@ a:visited {
 }
 
 a:hover {
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-duration: 8s;
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+  animation-name: rainbow;
+  animation-play-state: running;
+  animation-timing-function: ease;
+  -webkit-background-clip: text;
   background-image: repeating-linear-gradient(to left, violet, indigo, blue, green, deepskyblue, mediumorchid);
   background-size: 800% 800%;
-  animation-duration: 8s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  animation-name: rainbow;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: bold;
   text-decoration: underline;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes rainbow {
@@ -150,8 +150,7 @@ input[type=submit] {
   border: 1px dotted #ccc;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: bold;
-  margin: 3px 0;
+  margin: 3px;
   outline: none;
   padding: 6px;
   transition: 0.5s;
@@ -168,29 +167,29 @@ input[type=submit]:hover {
 input[type=button]:active,
 input[type=reset]:active,
 input[type=submit]:active {
-  background-color: mintcream;
+  background-color: #555;
   border: 1px solid mintcream;
-  color: #050505;
+  color: mintcream;
 }
 
 input[type=text],
 input[type=password],
 input[type=email] {
+  background: #f8f8f8;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: #050505;
+  filter: alpha(opacity:60);
   font-size: 16px;
   font-weight: bold;
   margin: 3px 0;
+  opacity: 0.6;
   outline: none;
   padding: 6px;
-  background: #f8f8f8;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #aaa #ccc #ccc #aaa;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-  filter: alpha(opacity:60);
-  opacity: 0.6;
   transition: 0.5s;
 }
 
@@ -199,18 +198,18 @@ input::placeholder {
 }
 
 textarea {
-  resize: none;
-  font-size: 16px;
-  outline: none;
-  padding: 6px;
-  border-width: 1px;
-  border-style: solid;
   border-color: #aaa #ccc #ccc #aaa;
   border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   filter: alpha(opacity:80);
+  font-size: 16px;
   opacity: 0.8;
+  outline: none;
+  padding: 6px;
+  resize: none;
   transition: 0.5s;
 }
 
@@ -233,4 +232,3 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px #555 inset;
   -webkit-text-fill-color: #fff;
 }
-

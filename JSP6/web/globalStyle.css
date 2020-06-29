@@ -51,6 +51,7 @@ pre {
 
 a {
   transition: 0.3s;
+  font-weight: bold;
 }
 
 a:link {
@@ -76,7 +77,6 @@ a:hover {
   animation-name: rainbow;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -192,5 +192,6 @@ select:-webkit-autofill:focus {
 td {
   color: #050505;
   font-size: 16px;
+  font-weight: bold;
   text-align: right;
 }

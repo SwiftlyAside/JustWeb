@@ -4,12 +4,14 @@
     <title>Board List</title>
 </head>
 <link href="${pageContext.request.contextPath}/globalStyle.css" rel="stylesheet">
-<body>
-<div id="board">
-    <div id="input">
-        <input type="text" id="findStr">
-        <input type="button" id="btnFind" value="검색">
-    </div>
+<body oncontextmenu="return false" ondragstart="return false">
+<div id="board" >
+    <header>
+        <div id="input">
+            <input type="text" id="findStr">
+            <input type="button" id="btnFind" value="검색">
+        </div>
+    </header>
     <div id="table">
         <div id="title">
             <span class="noTD">NO</span>
