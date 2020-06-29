@@ -4,7 +4,7 @@ function select(ev) {
     const sel = $id('suggest');
     sel.style.display = 'none';
     const val = ev.target.value;
-    const url = `boardView.jsp?findStr=${val}`;
+    const url = `productView.jsp?findStr=${val}`;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.onreadystatechange = () => {
@@ -22,7 +22,7 @@ function select(ev) {
 
 function findFunc() {
     const findStr = $id('findStr').value;
-    const url = `autocompleteResult.jsp?findStr=${findStr}`;
+    const url = `productSuggestResult.jsp?findStr=${findStr}`;
     const xhr = new XMLHttpRequest();
     const sel = $id('suggest');
     sel.ondblclick = select;
@@ -42,7 +42,7 @@ function findFunc() {
 
             // 응답된 JSON 타입 데이터를 select 상자에 표시
             for (const datum of data)
-                sel.options.add(new Option(datum, datum));
+                sel.options.add(new Option(datum.name, datum.id));
         }
     }
     xhr.send();
