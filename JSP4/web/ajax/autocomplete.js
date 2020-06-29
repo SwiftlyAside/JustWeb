@@ -1,10 +1,31 @@
 $id = id => document.getElementById(id);
 
+function select(ev) {
+    const sel = $id('suggest');
+    sel.style.display = 'none';
+    const val = ev.target.value;
+    const url = `boardView.jsp?findStr=${val}`;
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onreadystatechange = () => {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            const data = JSON.parse(xhr.responseText);
+            $id('result').innerHTML = `
+                        <li>no : ${data.no}
+                        <li>title : ${data.title}
+                        <li>id : ${data.id}
+                        <li>writeDate : ${data.writeDate}`;
+        }
+    }
+    xhr.send();
+}
+
 function findFunc() {
     const findStr = $id('findStr').value;
     const url = `autocompleteResult.jsp?findStr=${findStr}`;
     const xhr = new XMLHttpRequest();
     const sel = $id('suggest');
+    sel.ondblclick = ev => select(ev);
 
     xhr.open('GET', url);
     xhr.onreadystatechange = () => {
@@ -27,10 +48,7 @@ function findFunc() {
     xhr.send();
 }
 
-$id('findStr').onkeyup = ev => {
-    // 입력 키가 enter 인 경우 함수 실행
-    const key = ev.key;
-    if (key === 'Enter')
-        findFunc();
+$id('findStr').onkeyup = () => {
+    findFunc();
 }
 $id('btn').onclick = findFunc;
