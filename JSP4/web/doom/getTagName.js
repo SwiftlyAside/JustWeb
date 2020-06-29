@@ -6,12 +6,12 @@ btn.onclick = () => {
     const form = document.form;
     let chk = form.hobby;
     let str = getEle(chk);
-    result.innerHTML = str;
-
     // getElementsByTagName 을 이용하여 node 선택
     str += '<h2>getElementsByTagName</h2>';
-    chk = document.getElementsByTagName('input');
 
+    chk = document.getElementsByTagName('input');
+    str += getEle(chk);
+    result.innerHTML = str;
 }
 
 function getEle(chk) {
