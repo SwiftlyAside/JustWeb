@@ -1,20 +1,28 @@
 #suggest {
-  background: #f8f8f8;
+  background: #fafafa;
   border-color: #aaa #ccc #ccc #aaa;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-  color: #050505;
   display: none;
   font-size: 16px;
   margin: 3px 0;
   opacity: 0.6;
   outline: none;
-  padding: 6px;
+  padding: 0 3px;
+  position: absolute;
   transition: 0.3s;
   width: 320px;
+}
+
+#suggest > option {
+  border-radius: 3px;
+  margin: 3px 0;
+  outline: none;
+  padding: 3px;
+  transition: 0.3s;
 }
 
 #result {
