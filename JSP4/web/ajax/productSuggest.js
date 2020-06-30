@@ -11,10 +11,8 @@ function select(ev) {
         if (xhr.status === 200 && xhr.readyState === 4) {
             const data = JSON.parse(xhr.responseText);
             $id('result').innerHTML = `
-                        <li>no : ${data.no}
-                        <li>title : ${data.title}
                         <li>id : ${data.id}
-                        <li>writeDate : ${data.writeDate}`;
+                        <li>name : ${data.name}`;
         }
     }
     xhr.send();
