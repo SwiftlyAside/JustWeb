@@ -14,7 +14,7 @@
             while (resultSet.next()) {
                 sb.append(prefix);
                 prefix = ",";
-                sb.append(String.format("'%s'", resultSet.getString("title")));
+                sb.append(String.format("'%s'", resultSet.getString("title").replaceAll("'","‘")));
             }
             sb.append("]");
             out.print(Pattern.compile("'").matcher(sb).replaceAll("\""));

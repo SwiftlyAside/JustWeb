@@ -17,7 +17,7 @@
                 sb.append(prefix);
                 prefix = ",";
                 String json = String.format("{'no':'%d','id':'%s','title':'%s','writeDate':'%s'}",
-                        rs.getInt("no"), rs.getString("id"), rs.getString("title"), rs.getString("writeDate"));
+                        rs.getInt("no"), rs.getString("id"), rs.getString("title").replaceAll("'","‘"), rs.getString("writeDate"));
                 sb.append(json);
             }
             sb.append("]");

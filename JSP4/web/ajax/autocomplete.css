@@ -1,3 +1,8 @@
+#product,
+#result {
+  margin: 3px;
+}
+
 #suggest {
   backdrop-filter: blur(5px);
   background: #fafafa;
@@ -27,7 +32,12 @@
 }
 
 #result {
-  border: 1px solid #aaa;
+  border-color: #aaa #ccc #ccc #aaa;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   height: 300px;
   padding: 10px;

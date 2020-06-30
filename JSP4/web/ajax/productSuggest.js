@@ -46,7 +46,5 @@ function findFunc() {
     xhr.send();
 }
 
-$id('findStr').onkeyup = () => {
-    findFunc();
-}
+$id('findStr').onkeyup = () => findFunc();
 $id('btn').onclick = findFunc;

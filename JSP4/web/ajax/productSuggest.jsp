@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/globalStyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/ajax/autocomplete.css">
 <body>
-<h2>Product Suggest</h2>
-<div id="div">
+<div id="product">
+    <h1>Product 검색</h1>
     <input type="text" size="30" id="findStr">
     <input type="button" value="검색" id="btn">
     <br>

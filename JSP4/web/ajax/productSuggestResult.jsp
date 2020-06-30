@@ -14,7 +14,9 @@
             while (resultSet.next()) {
                 sb.append(prefix);
                 prefix = ",";
-                sb.append(String.format("{'id':'%s','name':'%s'}", resultSet.getString("PRODUCTID"), resultSet.getString("PRODUCTNAME")));
+                sb.append(String.format("{'id':'%s','name':'%s'}",
+                        resultSet.getString("PRODUCTID"),
+                        resultSet.getString("PRODUCTNAME").replaceAll("'","‘")));
             }
             sb.append("]");
             out.print(Pattern.compile("'").matcher(sb).replaceAll("\""));
