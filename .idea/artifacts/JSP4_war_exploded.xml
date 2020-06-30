@@ -11,6 +11,7 @@
           <element id="library" level="application" name="JAX-WS-Apache Axis" />
           <element id="library" level="project" name="jinsMail" />
           <element id="library" level="application" name="ojdbc8" />
+          <element id="library" level="application" name="cos" />
         </element>
       </element>
     </root>
