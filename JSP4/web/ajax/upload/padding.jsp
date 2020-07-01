@@ -7,8 +7,6 @@
         transition-timing-function: linear;
     }
     img:hover {
-        width: 300%;
-        height: 300%;
         -webkit-transform: scale(10, 10);
         transform: scale(10, 10);
     }

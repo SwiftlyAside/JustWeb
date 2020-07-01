@@ -1,37 +1,44 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Tomcat 9.0.35" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.35" ALTERNATIVE_JRE_ENABLED="false">
     <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+    <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+    <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
     <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
     <option name="UPDATING_POLICY" value="redeploy-artifacts" />
     <deployment>
-      <artifact name="JSP1:war">
+      <artifact name="JSP1:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp1" />
         </settings>
       </artifact>
-      <artifact name="JSP2:war">
+      <artifact name="JSP2:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp2" />
         </settings>
       </artifact>
-      <artifact name="JSP3:war">
+      <artifact name="JSP3:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp3" />
         </settings>
       </artifact>
-      <artifact name="JSP4:war">
+      <artifact name="JSP4:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp4" />
         </settings>
       </artifact>
-      <artifact name="JSP5:war">
+      <artifact name="JSP5:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp5" />
         </settings>
       </artifact>
-      <artifact name="JSP6:war">
+      <artifact name="JSP6:war exploded">
         <settings>
           <option name="CONTEXT_PATH" value="/jsp6" />
+        </settings>
+      </artifact>
+      <artifact name="JSP7:war exploded">
+        <settings>
+          <option name="CONTEXT_PATH" value="/jsp7" />
         </settings>
       </artifact>
     </deployment>
@@ -94,12 +101,13 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="JSP1:war" />
-        <artifact name="JSP2:war" />
-        <artifact name="JSP3:war" />
-        <artifact name="JSP4:war" />
-        <artifact name="JSP5:war" />
-        <artifact name="JSP6:war" />
+        <artifact name="JSP1:war exploded" />
+        <artifact name="JSP2:war exploded" />
+        <artifact name="JSP3:war exploded" />
+        <artifact name="JSP4:war exploded" />
+        <artifact name="JSP5:war exploded" />
+        <artifact name="JSP6:war exploded" />
+        <artifact name="JSP7:war exploded" />
       </option>
     </method>
   </configuration>
