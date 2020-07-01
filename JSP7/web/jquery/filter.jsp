@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>filter</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jquery/style.css">
 <script crossorigin="anonymous"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
