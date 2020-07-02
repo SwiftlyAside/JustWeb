@@ -13,6 +13,34 @@
             integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
             src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="select.js"></script>
+    <style>
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            font-size: 1.4em;
+            height: 18px;
+            margin: 3px;
+            padding: 0.4em;
+        }
+    </style>
 </head>
 <body>
 <ol id="selectable">
