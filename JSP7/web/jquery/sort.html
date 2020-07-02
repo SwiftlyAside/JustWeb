@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Select</title>
+    <title>Sort</title>
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
           integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
           rel="stylesheet"/>
@@ -12,11 +12,11 @@
     <script crossorigin="anonymous"
             integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
             src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="select.js"></script>
-    <link href="sstyle.css" rel="stylesheet"/>
+    <script src="sort.js"></script>
+    <link href="sstyle.css" rel="stylesheet">
 </head>
 <body>
-<ol id="selectable">
+<ul id="sortable">
     <li>백두산</li>
     <li>금강산</li>
     <li>치악산</li>
@@ -26,6 +26,7 @@
     <li>지리산</li>
     <li>내장산</li>
     <li>계양산</li>
-</ol>
+</ul>
+<input type="button" id="btn" value="Output">
 </body>
 </html>
