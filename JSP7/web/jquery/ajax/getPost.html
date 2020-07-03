@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Post</title>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.min.css"
+          integrity="sha512-1diPgCATeJwHrxYhKZWrv1rINfMVAdmxpYxPK44MCfzqRJk/rhxh4GS9xgaLLuvr9Q9KHJ+EiajOLs7zuBEqzA=="
+          rel="stylesheet"/>
+    <script crossorigin="anonymous"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-sdrkWdHcsY+FX+Cp0Is6hnNkukQewnksFdGjyD6wEvcfBQfseLJWwE0hB3+DIlRndHx5cuFuf0RbLOBST4cjCA=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.3/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-dG5ZzvFUfkBdjYdJbsKdGGh8tOa9fv9wHmiChCFJYHRIW1XgfxN2cGzt2HaEPeunXqbAQXBOJvSBQpGOl0qikw=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.umd.min.js"></script>
+    <script src="getPost.js"></script>
+</head>
+<body>
+<h3>제품 검색</h3>
+<form id="form" method="post" name="form">
+    <label>검색</label>
+    <input id="findStr" name="findStr" type="text">
+    <input id="btnFind" type="button" value="FIND">
+</form>
+<div id="result"></div>
+</body>
+</html>

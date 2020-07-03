@@ -27,5 +27,8 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jqueryui" level="application" />
     <orderEntry type="library" name="muicss" level="application" />
+    <orderEntry type="library" name="ojdbc8" level="application" />
+    <orderEntry type="library" name="bootstrap-material-design" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
   </component>
 </module>
