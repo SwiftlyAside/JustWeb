@@ -8,6 +8,7 @@
     try (PreparedStatement statement = connection.prepareStatement(sql)) {
         statement.setString(1, "%" + findStr + "%");
         try (ResultSet rs = statement.executeQuery()) {
+
             while (rs.next()) { %>
 
 <%

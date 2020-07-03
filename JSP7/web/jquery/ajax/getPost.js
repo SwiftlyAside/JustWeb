@@ -36,8 +36,8 @@ $(() => {
     $.post('/jsp4/ajax/productSuggestResult.jsp', `findStr=${$('#findStr').val()}`, (json) => {
       const $result = $('#result');
       $result.html('');
-      for (const jsonElement of json) {
-        $result.append(`<li>ID: ${jsonElement.id}</li><li>NAME: ${jsonElement.name}</li>`);
+      for (let i = 0; i < json.length; i += 1) {
+        $result.append(`<li>ID: ${json[i].id}</li><li>NAME: ${json[i].name}</li>`);
       }
     }, 'json');
   });
